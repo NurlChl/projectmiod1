@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'roboto';
+}
+
+h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 1rem 10vw;
+}
+
+nav img {
+    width: 10rem;
+    object-fit: contain;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+}
+
+.bungkus-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin: 2rem 10rem;
+}
+
+.kotak-artikel {
+
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 3;
+    gap: 2rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.kotak-artikel .artikel:nth-child(3n+1) {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    border: 1px solid gray;
+    max-height: 60rem;
+    /* grid-area: artikel1; */
+    /* grid-column: 2; */
+    width: 100%;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2) {
+    /* grid-area: artikel2; */
+    width: 100%;
+    max-width: 45%;
+    flex-grow: 1;
+}
+
+.kotak-artikel .artikel:nth-child(3n+3) {
+    /* grid-area: artikel3; */
+    width: 100%;
+    max-width: 45%;
+    flex-grow: 1;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2), .kotak-artikel .artikel:nth-child(3n+3) {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: space-between;
+    max-height: 40rem;
+}
+
+.kotak-artikel .artikel img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.kotak-artikel .artikel div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2) div span, .kotak-artikel .artikel:nth-child(3n+3) div span {
+    text-align: center;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2) div h1, .kotak-artikel .artikel:nth-child(3n+3) div h1 {
+    text-align: center;
+}
+
+.kotak-artikel .artikel:nth-child(3n+1) div ul.keterangan{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: start;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2) div ul.keterangan, .kotak-artikel .artikel:nth-child(3n+3) div ul.keterangan {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2) div ul p, .kotak-artikel .artikel:nth-child(3n+3) div ul p {
+    text-align: center;
+    font-weight: 300;
+    font-size: .9rem;
+}
+
+
+.kotak-artikel .artikel.artikel div p{
+    line-height: 2rem;
+    font-weight: 300;
+    font-size: 1rem;
+    font-family: 'poppins';
+}
+
+.kotak-artikel .artikel div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.kotak-artikel .artikel div .komen {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+.kotak-artikel .artikel div .komen li.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' -25,
+  'opsz' 20
+
+}
+
+
+.artikel-terbaru {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.artikel-terbaru>h2 {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: .5rem;
+}
+
+.artikel-terbaru input {
+    border-radius: 100rem;
+    padding: .5rem 1rem;
+    outline: none;
+    border: 1px solid black;
+}
+
+.artikel-terbaru div {
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.artikel-terbaru div ul div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.artikel-terbaru div ul div img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+}
+
+.artikel-terbaru div ul div li {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.artikel-terbaru div ul div li h1 {
+    font-size: 1rem;
+}
+
+.artikel-terbaru div ul div li p {
+    font-size: .9rem;
+    color: gray;
+}
