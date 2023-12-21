@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+
+.bungkus-section {
+    display: grid;
+    grid-template-areas: 'opini opini opini terbaru';
+    margin: 5rem 10rem;
+    /* grid-template-columns: 3fr 1fr; */
+    gap: 2rem;
+    max-height: min-content;
+    overflow: auto;
+}
+
+.bungkus-section .detail {
+    grid-area: opini;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.bungkus-section .detail .detail-opini {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.bungkus-section .detail .detail-opini h1 {
+    text-align: center;
+    cursor: pointer;
+}
+.bungkus-section .detail .detail-opini h1:hover {
+    color: gray;
+}
+
+.bungkus-section .detail .detail-opini ul.tgl {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.bungkus-section .detail .detail-opini ul.tgl p {
+    font-size: .9rem;
+    align-items: center;
+    color: gray;
+}
+
+.bungkus-section .detail .detail-opini ul p span {
+    text-transform: capitalize;
+    color: black;
+}
+
+.bungkus-section .detail .detail-opini img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.bungkus-section .detail .detail-opini .komen {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    padding: 1rem;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    justify-content: center;
+}
+
+.bungkus-section .detail .detail-opini .komen li {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    align-items: center;
+}
+
+.bungkus-section .detail .detail-opini .komen li p.material-symbols-rounded {
+    cursor: pointer;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' -25,
+    'opsz' 20
+}
+
+.bungkus-section .detail .detail-opini .komen li .t-komen {
+    font-size: .8rem;
+}
+
+.bungkus-section .detail .detail-opini .komen li.share-sosmed {
+    gap: 1rem;
+}
+
+.bungkus-section .detail .detail-opini .komen li span {
+    cursor: pointer;
+}
+
+.bungkus-section .detail .detail-opini .komen li span.material-symbols-rounded {
+    font-size: 1.3rem;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' -25,
+    'opsz' 20
+}
+
+.bungkus-section .detail .bungkus-rekom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.bungkus-section .detail .rekomendasi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    /* display: flex;
+    flex-direction: row; */
+    overflow: auto;
+    width: 100%;
+    gap: 2rem;
+}
+
+.bungkus-section .detail .rekomendasi div.konten-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.bungkus-section .detail .rekomendasi div.konten-slider img {
+    width: 100%;
+    height: 9rem;
+    object-fit: cover;
+}
+
+.bungkus-section .detail .rekomendasi div.konten-slider h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+}
+.bungkus-section .detail .rekomendasi div.konten-slider h2:hover {
+    color: gray;
+}
+
+.bungkus-section .detail .rekomendasi div.konten-slider p {
+    font-size: .8rem;
+    text-transform: capitalize;
+    text-align: center;
+    color: gray;
+}
+
+.bungkus-section .terbaru {
+    grid-area: terbaru;
+    width: 100%;
+    height: fit-content;
+}
+
+.bungkus-section .terbaru .opini-terbaru {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bungkus-section .terbaru .opini-terbaru div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    border-bottom: 1px solid gray;
+    padding: 1.5rem 0;
+}
+
+.bungkus-section .terbaru .opini-terbaru div img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+}
+
+.bungkus-section .terbaru .opini-terbaru div ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bungkus-section .terbaru .opini-terbaru div ul h1 {
+    font-size: 1rem;
+    cursor: pointer;
+}
+.bungkus-section .terbaru .opini-terbaru div ul h1:hover {
+    color: gray;
+}
+
+.bungkus-section .terbaru .opini-terbaru div ul p {
+    font-size: .8rem;
+    color: gray;
+}

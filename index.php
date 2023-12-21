@@ -1,5 +1,12 @@
 <?php
 
+require 'koneksi.php';
+include_once 'navbar.php';
+
+$opini = query("SELECT * FROM opini");
+
+$format_tgl = new \IntlDateFormatter('id_ID', \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
+$format_tgl->setPattern('MMMM d, y');
 
 
 ?>
@@ -16,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -41,170 +49,37 @@
     </script>
 </head>
 <body>
-    <nav>
-        <img src="https://www.puthutea.com/wp-content/uploads/2018/07/logo-1.png" />
-
-        <ul>
-            <li>HOME</li>
-            <li>HOME</li>
-            <li>HOME</li>
-            <li>HOME</li>
-        </ul>
-    </nav>
-
     <div class="bungkus-section">
         <section class="kotak-artikel">
-
+            <?php foreach ($opini as $opini) : ?>
             <div class="artikel">
                 <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg" />
                 <div>
-                    <span>Uncategoriez</span>
-                    <h1>11 NASIHAT KRMTA POORNOMO hadiningrat</h1>
+                    <span class="kategori"><?= $opini['kategori'] ?></span>
+                    <h1><?= $opini['judul'] ?></h1>
                     <ul class="keterangan">
-                        <p>by <span>Ustadzah</span></p>
+                        <p>by <span><?= $opini['penulis'] ?></span></p>
                         <p>|</p>
-                        <p>May 8, 2022</p>
+                        <p><?= $format_tgl->format(strtotime($opini['tgl_buat']))  ?></p>
                     </ul>
-                    <p class="text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
+                    <span class="baris"></span>
+                    <p class="text-ellipsis"><?= nl2br($opini['isi_opini']) ?></p>
                 </div>
-                <div>
+                <div class="bungkus-sosmed">
                     <ul class="komen">
                         <li class="material-symbols-rounded">maps_ugc</li>
                         <li>Comment,</li>
                     </ul>
                     <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li class="baris"></li>
+                        <li class="fa fa-facebook"></li>
+                        <li class="fa fa-twitter"></li>
+                        <li class="fa fa-whatsapp"></li>
+                        <li class="baris"></li>
                     </ul>
                 </div>
             </div>
-            <div class="artikel">
-                <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg" />
-                <div>
-                    <span>Uncategoriez</span>
-                    <h1>11 NASIHAT KRMTA POORNOMO hadiningrat</h1>
-                    <ul class="keterangan">
-                        <p>by <span>Ustadzah</span></p>
-                        <p>|</p>
-                        <p>May 8, 2022</p>
-                    </ul>
-                    <p class="text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
-                </div>
-                <div>
-                    <ul class="komen">
-                        <li class="material-symbols-rounded">maps_ugc</li>
-                        <li>Comment,</li>
-                    </ul>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="artikel">
-                <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg" />
-                <div>
-                    <span>Uncategoriez</span>
-                    <h1>11 NASIHAT KRMTA POORNOMO hadiningrat</h1>
-                    <ul class="keterangan">
-                        <p>by <span>Ustadzah</span></p>
-                        <p>|</p>
-                        <p>May 8, 2022</p>
-                    </ul>
-                    <p class="text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
-                </div>
-                <div>
-                    <ul class="komen">
-                        <li class="material-symbols-rounded">maps_ugc</li>
-                        <li>Comment,</li>
-                    </ul>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="artikel">
-                <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg" />
-                <div>
-                    <span>Uncategoriez</span>
-                    <h1>11 NASIHAT KRMTA POORNOMO hadiningrat</h1>
-                    <ul class="keterangan">
-                        <p>by <span>Ustadzah</span></p>
-                        <p>|</p>
-                        <p>May 8, 2022</p>
-                    </ul>
-                    <p class="text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
-                </div>
-                <div>
-                    <ul class="komen">
-                        <li class="material-symbols-rounded">maps_ugc</li>
-                        <li>Comment,</li>
-                    </ul>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="artikel">
-                <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg" />
-                <div>
-                    <span>Uncategoriez</span>
-                    <h1>11 NASIHAT KRMTA POORNOMO hadiningrat</h1>
-                    <ul class="keterangan">
-                        <p>by <span>Ustadzah</span></p>
-                        <p>|</p>
-                        <p>May 8, 2022</p>
-                    </ul>
-                    <p class="text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
-                </div>
-                <div>
-                    <ul class="komen">
-                        <li class="material-symbols-rounded">maps_ugc</li>
-                        <li>Comment,</li>
-                    </ul>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="artikel">
-                <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg" />
-                <div>
-                    <span>Uncategoriez</span>
-                    <h1>11 NASIHAT KRMTA POORNOMO hadiningrat</h1>
-                    <ul class="keterangan">
-                        <p>by <span>Ustadzah</span></p>
-                        <p>|</p>
-                        <p>May 8, 2022</p>
-                    </ul>
-                    <p class="text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
-                </div>
-                <div>
-                    <ul class="komen">
-                        <li class="material-symbols-rounded">maps_ugc</li>
-                        <li>Comment,</li>
-                    </ul>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </section>
     
         <section class="artikel-terbaru">
@@ -272,5 +147,7 @@
             </div>
         </section>
     </div>
+
+    <?php include_once 'footer.php'; ?>
 </body>
 </html>

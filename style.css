@@ -7,6 +7,10 @@
     font-family: 'roboto';
 }
 
+a {
+    color: black;
+}
+
 h1 {
     font-size: 1.2rem;
     font-weight: 600;
@@ -18,6 +22,7 @@ nav {
     gap: 2rem;
     justify-content: space-between;
     padding: 1rem 10vw;
+    align-items: center;
 }
 
 nav img {
@@ -32,9 +37,19 @@ nav ul {
 
 }
 
+nav ul li {
+    text-transform: uppercase;
+    font-size: .9rem;
+    cursor: pointer;
+}
+nav ul li:hover {
+    color: red;
+    transition: all .2s ease;
+}
+
 .bungkus-section {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
     gap: 3rem;
     margin: 2rem 10rem;
 }
@@ -53,12 +68,24 @@ nav ul {
     align-items: center;
 }
 
+.kotak-artikel .artikel img:hover {
+    filter: opacity(90%);
+    transition: all .2s ease-in-out;
+}
+
+.kotak-artikel .artikel span.kategori {
+    font-weight: 400;
+    font-size: .9rem;
+    color: green;
+    cursor: pointer;
+}
+
 .kotak-artikel .artikel:nth-child(3n+1) {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 0 0 2rem 0;
     gap: 2rem;
-    border: 1px solid gray;
+    border: 1px solid rgb(197, 197, 197);
     max-height: 60rem;
     /* grid-area: artikel1; */
     /* grid-column: 2; */
@@ -82,15 +109,21 @@ nav ul {
 .kotak-artikel .artikel:nth-child(3n+2), .kotak-artikel .artikel:nth-child(3n+3) {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
     gap: 2rem;
     justify-content: space-between;
     max-height: 40rem;
 }
 
-.kotak-artikel .artikel img {
+.kotak-artikel .artikel:nth-child(3n+1) img {
     object-fit: cover;
     width: 100%;
+    height: 35rem;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2) img, .kotak-artikel .artikel:nth-child(3n+3) img {
+    object-fit: cover;
+    width: 100%;
+    height: 15rem;
 }
 
 .kotak-artikel .artikel div {
@@ -98,6 +131,44 @@ nav ul {
     flex-direction: column;
     gap: 1rem;
     justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.kotak-artikel .artikel .bungkus-sosmed {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    align-items: center;
+    margin: 0 2rem;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2) .bungkus-sosmed, .kotak-artikel .artikel:nth-child(3n+3) .bungkus-sosmed {
+    justify-content: center;
+    border: none;
+    padding: 0;
+}
+/* .kotak-artikel .artikel:nth-child(3n+2) .bungkus-sosmed::before, .kotak-artikel .artikel:nth-child(3n+3) .bungkus-sosmed::before {
+    content: ' --------------';
+    text-align: center;
+}
+.kotak-artikel .artikel:nth-child(3n+2) .bungkus-sosmed::after, .kotak-artikel .artikel:nth-child(3n+3) .bungkus-sosmed::after {
+    content: ' --------------';
+    text-align: center;
+} */
+
+.kotak-artikel .artikel div h1 {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.kotak-artikel .artikel div h1:hover {
+    color: gray;
+    transition: all .2s ease-in;
 }
 
 .kotak-artikel .artikel:nth-child(3n+2) div span, .kotak-artikel .artikel:nth-child(3n+3) div span {
@@ -122,10 +193,29 @@ nav ul {
     justify-content: center;
 }
 
+.kotak-artikel .artikel div ul.keterangan p {
+    font-size: .8rem;
+}
+
+.kotak-artikel .artikel div ul.keterangan p span {
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.kotak-artikel .artikel:nth-child(3n+1) div span.baris {
+    border-bottom: 1px solid green;
+    width: 4rem;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2) div span.baris, .kotak-artikel .artikel:nth-child(3n+3) div span.baris {
+    border-bottom: 1px solid green;
+    width: 4rem;
+    margin: 0 auto;
+}
+
 .kotak-artikel .artikel:nth-child(3n+2) div ul p, .kotak-artikel .artikel:nth-child(3n+3) div ul p {
     text-align: center;
     font-weight: 300;
-    font-size: .9rem;
 }
 
 
@@ -136,9 +226,20 @@ nav ul {
     font-family: 'poppins';
 }
 
+.kotak-artikel .artikel.artikel div p.text-ellipsis a {
+    color: orange;
+}
+
 .kotak-artikel .artikel div {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+}
+
+.kotak-artikel .artikel div ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -146,9 +247,22 @@ nav ul {
     display: flex;
     flex-direction: row;
     gap: .5rem;
+    align-items: center;
+    /* border-top: 1px solid rgb(209, 209, 209);
+    border-bottom: 1px solid rgb(209, 209, 209); */
+    cursor: pointer;
+}
+
+.kotak-artikel .artikel:nth-child(3n+2) div .komen, .kotak-artikel .artikel:nth-child(3n+3) div .komen {
+    display: none;
+}
+
+.kotak-artikel .artikel div .komen li {
+    font-size: 1rem;
 }
 
 .kotak-artikel .artikel div .komen li.material-symbols-rounded {
+    font-size: 1.2rem;
   font-variation-settings:
   'FILL' 0,
   'wght' 200,
@@ -157,12 +271,27 @@ nav ul {
 
 }
 
+.kotak-artikel .artikel:nth-child(3n+1) div.bungkus-sosmed ul .baris {
+    display: none;
+} 
+
+.kotak-artikel .artikel div.bungkus-sosmed ul .baris {
+    width: 5vw;
+    height: 1px;
+    text-align: center;
+    background-color: gray;
+}
 
 .artikel-terbaru {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     width: 100%;
+}
+
+.artikel-terbaru div img:hover {
+    filter: opacity(90%);
+    transition: all .2s ease-in-out;
 }
 
 .artikel-terbaru>h2 {
@@ -191,8 +320,8 @@ nav ul {
 }
 
 .artikel-terbaru div ul div img {
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
     object-fit: cover;
 }
 
@@ -204,9 +333,100 @@ nav ul {
 
 .artikel-terbaru div ul div li h1 {
     font-size: 1rem;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.artikel-terbaru div ul div li h1:hover {
+    color: green;
+    transition: all .2s ease-in-out;
 }
 
 .artikel-terbaru div ul div li p {
-    font-size: .9rem;
+    font-size: .8rem;
     color: gray;
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 5rem;
+}
+
+footer div.sosmed {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-bottom: 1px solid black;
+    margin: 0 10rem;
+}
+
+footer div.sosmed ul {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    align-items: center;
+}
+
+footer div.sosmed ul {
+    color: orange;
+    cursor: pointer;
+}
+
+footer div.sosmed ul:hover, footer div.sosmed ul:hover li {
+    color: green;
+    border-color: green;
+    transition: all .2s ease-in-out;
+}
+
+footer div.sosmed li.fa {
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100rem;
+    border: 1px solid orange;
+    cursor: pointer;
+    padding: 1.5rem;
+    font-size: 1.3rem;
+}
+
+footer div.copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+footer div.copyright img {
+    width: 10rem;
+    object-fit: contain;
+}
+
+footer div.copyright ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+footer div.copyright ul li {
+    font-size: .9rem;
+    cursor: pointer;
+    color: gray;
+}
+footer div.copyright ul li:hover {
+    color: black;
+}
+
+footer div.copyright em {
+    color: gray;
+    font-size: .9rem;
 }
