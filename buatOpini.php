@@ -3,24 +3,23 @@
 require 'koneksi.php';
 
 if (isset($_POST["simpan"])) {
-
     
-
-    if (tambah($_POST) > 0 ) {
-        echo "
-            <script>
-                alert('data berhasil ditambahkan')
-                document.location.href = 'index.php'
-            </script>
-        ";
-    } else {
-        echo "
-            <script>
-                alert('data gagal ditambahkan')
-            </script>
-        ";
-    }
-};
+        if (tambah($_POST) > 0 ) {
+            echo "
+                <script>
+                    alert('data berhasil ditambahkan')
+                    document.location.href = 'index.php'
+                </script>
+            ";
+        } else {
+            echo "
+                <script>
+                    alert('data gagal ditambahkan')
+                </script>
+            ";
+        }
+    
+}
 
 ?>
 
@@ -40,13 +39,62 @@ if (isset($_POST["simpan"])) {
     <script src="https://cdn.tiny.cloud/1/xew3fiz6muk1txs3fhfjrqtw1kceo01q6tphuhqhn2cth34o/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
+        const image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', 'postAcceptor.php');
+
+        xhr.upload.onprogress = (e) => {
+            progress(e.loaded / e.total * 100);
+        };
+
+        xhr.onload = () => {
+            if (xhr.status === 403) {
+            reject({ message: 'HTTP Error: ' + xhr.status, remove: true });
+            return;
+            }
+
+            if (xhr.status < 200 || xhr.status >= 300) {
+            reject('HTTP Error: ' + xhr.status);
+            return;
+            }
+
+            const json = JSON.parse(xhr.responseText);
+
+            if (!json || typeof json.location != 'string') {
+            reject('Invalid JSON: ' + xhr.responseText);
+            return;
+            }
+
+            resolve(json.location);
+        };
+
+        xhr.onerror = () => {
+            reject('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+        };
+
+        const formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+        xhr.send(formData);
+        });
+
+
         tinymce.init({
             selector: '#isi_opini',
             plugins: 'image link',
             toolbar: 'bold italic underline | image link',
             image_uploadtab: true,
-            images_upload_url: 'URL_UNGGAH_GAMBAR',
-            branding: false
+            images_upload_url: 'postAcceptor.php',
+            branding: false,
+            images_reuse_filename: true,
+            valid_elements: 'b,i,strong,em', // Hanya izinkan elemen bold, italic, strong, dan em
+            valid_children: '-p[strong|em|b|i]', // Tidak izinkan elemen anak pada elemen p kecuali strong, em, b, atau i
+            force_p_newlines: false, // Menghilangkan tag <p> secara otomatis
+            force_br_newlines: true, // Menggunakan tag <br> untuk baris baru
+            remove_linebreaks: false, // Menghapus baris baru
+            cleanup: true,
+            images_upload_handler: image_upload_handler()
         });
     </script>
 
@@ -60,27 +108,27 @@ if (isset($_POST["simpan"])) {
     <form action="" method="post" enctype="multipart/form-data">
         <h1>Buat Opini</h1>
 
-        <div>
+        <div class="input-biasa">
             <label for="judul">Judul</label>
             <input type="text" name="judul" id="judul" />
         </div>
 
-        <div>
+        <div class="input-biasa">
             <label for="kategori">Kategori</label>
             <input type="text" name="kategori" id="kategori" value="Uncategories" />
         </div>
 
-        <div>
+        <div class="input-biasa">
             <label for="penulis">Penulis</label>
             <input type="text" name="penulis" id="penulis" />
         </div>
 
-        <div>
+        <div class="input-biasa">
             <label for="gambar">Cover Opini</label>
             <input type="file" name="gambar" id="gambar" />
         </div>
         
-        <div>
+        <div class="isi-opini">
             <label for="isi_opini">Opini</label>
             <textarea name="isi_opini" id="isi_opini" placeholder="Masukkan opini anda"></textarea>
         </div>

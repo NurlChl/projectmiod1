@@ -16,11 +16,35 @@ function query($query) {
 
 
 
+// function tambah($data) {
+//     global $conn;                                
+
+//     $judul = $data["judul"];
+//     $isi_opini = $data["isi_opini"];
+//     $kategori = $data["kategori"];
+//     $penulis = $data["penulis"];
+
+//     $gambar = upload();
+//     if (!$gambar) {
+//         return false;
+//     }
+
+//     $query = "INSERT INTO opini
+//             (judul, isi_opini, kategori, penulis, gambar)
+//             VALUES
+//             ('$judul', '$isi_opini', '$kategori', '$penulis', '$gambar')
+//             ";
+//     mysqli_query($conn, $query);
+
+//     return mysqli_affected_rows($conn);
+// };
+
 function tambah($data) {
     global $conn;                                
 
     $judul = $data["judul"];
-    $isi_opini = $data["isi_opini"];
+    $opinion = $data["isi_opini"];
+    $isi_opini = strip_tags($opinion, '<b><i><strong><em><br>');
     $kategori = $data["kategori"];
     $penulis = $data["penulis"];
 
@@ -29,15 +53,23 @@ function tambah($data) {
         return false;
     }
 
-    $query = "INSERT INTO opini
-            (judul, isi_opini, kategori, penulis, gambar)
-            VALUES
-            ('$judul', '$isi_opini', '$kategori', '$penulis', '$gambar')
-            ";
-    mysqli_query($conn, $query);
+    $query = "INSERT INTO opini (judul, isi_opini, kategori, penulis, gambar) VALUES (?, ?, ?, ?, ?)";
+    
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, "sssss", $judul, $isi_opini, $kategori, $penulis, $gambar);
+    
+    $result = mysqli_stmt_execute($stmt);
 
-    return mysqli_affected_rows($conn);
-};
+    if ($result) {
+        return mysqli_stmt_affected_rows($stmt);
+    } else {
+        echo "Error: " . mysqli_stmt_error($stmt);
+        return false;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
 
 function upload() {
 

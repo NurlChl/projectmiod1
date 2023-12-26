@@ -18,6 +18,8 @@ h1 {
     font-weight: 600;
 }
 
+
+
 nav {
     display: flex;
     flex-direction: row;
@@ -49,12 +51,19 @@ nav ul li:hover {
     transition: all .2s ease;
 }
 
-.bungkus-section {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 3rem;
-    margin: 2rem 10rem;
-    width: 100%;
+
+
+.container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 3fr 1fr;
+  padding: 2rem 10rem;
+  gap: 3rem;
+  margin-top: 5rem;
+}
+
+.container .kotak-artikel::-webkit-scrollbar {
+  width: 0;
 }
 
 .kotak-artikel {
@@ -64,10 +73,8 @@ nav ul li:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-grow: 3;
     gap: 2rem;
     justify-content: center;
-    align-content: center;
     align-items: center;
     overflow-y: auto;
 }
@@ -293,6 +300,8 @@ nav ul li:hover {
     background-color: gray;
 }
 
+
+
 .artikel-terbaru {
     display: flex;
     flex-direction: column;
@@ -359,11 +368,13 @@ nav ul li:hover {
 }
 
 
+
+
 footer {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 5rem;
+    margin-top: 10rem;
 }
 
 footer div.sosmed {

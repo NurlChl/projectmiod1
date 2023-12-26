@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+         document.addEventListener("DOMContentLoaded", function() {
             addEllipsisToClass("text-ellipsis");
         });
 
@@ -29,17 +29,26 @@
             for (var i = 0; i < elements.length; i++) {
                 var element = elements[i];
                 var lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
-                var maxLines = 3;
+                var maxLines = 3; // Sesuaikan dengan jumlah baris maksimum yang diinginkan
+                var maxHeight = lineHeight * maxLines;
 
-                if (element.clientHeight > lineHeight * maxLines) {
-                    while (element.clientHeight > lineHeight * maxLines) {
+                if (element.clientHeight > maxHeight) {
+                    while (element.clientHeight > maxHeight) {
                         element.innerHTML = element.innerHTML.slice(0, -1);
                     }
                     element.innerHTML += "...";
                 }
             }
         }
-    </script>
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var navbarHeight = document.querySelector('.artikel-terbaru').offsetHeight;
+
+            document.getElementById('myContainer').style.height = navbarHeight + 'px';
+        });
+        </script>
+
 </head>
 <body>
     <nav>
@@ -53,7 +62,7 @@
         </ul>
     </nav>
 
-    <div class="bungkus-section">
+    <div class="bungkus-section" id="myContainer">
         <section class="kotak-artikel">
 
             <div class="artikel">
@@ -68,8 +77,6 @@
                     </ul>
                     <span class="baris"></span>
                     <p class="text-ellipsis">Lorem ipsum, dolor sit amet consectetujksdfksjfksefoefiwfknefeofpmpmnfeoin snvokenvon 
-                        <br>
-                        <br>
                         r adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
                 </div>
                 <div class="bungkus-sosmed">
@@ -97,7 +104,7 @@
                         <p>May 8, 2022</p>
                     </ul>
                     <span class="baris"></span>
-                    <p class="text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
+                    <p class="text-ellipsis"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
                 </div>
                 <div class="bungkus-sosmed">
                     <ul class="komen">
@@ -124,7 +131,15 @@
                         <p>May 8, 2022</p>
                     </ul>
                     <span class="baris"></span>
-                    <p class="text-ellipsis">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab modi soluta ad alias voluptatem asperiores aliquid laboriosam quod provident recusandae distinctio architecto nemo omnis enim necessitatibus sed non adipisci culpa pariatur nulla, debitis natus, odio quo. Amet eligendi facilis magni cumque omnis doloremque? Quae ut aperiam odit quibusdam est possimus!</p>
+                    <p class="text-ellipsis">
+                        sdfjk
+                        <strong>scmdcmldcvmdkmvlcd mkkkkkkkkkkkkkkkkkk ddddddddddddddddkkkkk kkkkkkkkkkkkkkkkkk 
+                            
+                            <br>
+                            <br><br>
+                            kkkkkkkk</strong>
+                        <em>scmdcmldcvmdkmvlcdmkkkkk  kkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkk <strong>nfkdfndk</strong></em>
+                    </p>
                 </div>
                 <div class="bungkus-sosmed">
                     <ul class="komen">
