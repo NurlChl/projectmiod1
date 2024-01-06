@@ -9,21 +9,25 @@
 
 .bungkus-section {
     display: grid;
-    grid-template-areas: 'opini opini opini terbaru';
-    margin: 5rem 10rem;
-    /* grid-template-columns: 3fr 1fr; */
-    gap: 2rem;
-    max-height: min-content;
-    overflow: auto;
+    width: 100%;
+    grid-template-columns: 3fr 1fr;
+    padding: 2rem 10rem;
+    gap: 3rem;
+    margin-top: 5rem;
 }
 
 .bungkus-section .detail {
-    grid-area: opini;
+    /* grid-area: opini; */
     width: 100%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    overflow-y: auto;
+}
+
+.bungkus-section .detail::-webkit-scrollbar {
+    width: 0;
 }
 
 .bungkus-section .detail .detail-opini {
@@ -51,6 +55,7 @@
 .bungkus-section .detail .detail-opini ul.tgl p {
     font-size: .9rem;
     align-items: center;
+    text-align: center;
     color: gray;
 }
 
@@ -67,7 +72,7 @@
 .bungkus-section .detail .detail-opini .komen {
     display: flex;
     flex-direction: row;
-    gap: 5vw;
+    gap: 2vw;
     padding: 1rem;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
@@ -77,8 +82,21 @@
 .bungkus-section .detail .detail-opini .komen li {
     display: flex;
     flex-direction: row;
-    gap: .5rem;
+    gap: 0;
     align-items: center;
+}
+
+.bungkus-section .detail .detail-opini .komen li .angka-like {
+    font-weight: 500;
+    font-size: .9rem;
+    color: green;
+}
+
+.bungkus-section .detail .detail-opini .komen .baris {
+    width: 1px;
+    height: 100%;
+    background-color: transparent;
+    border-left: 1px solid gray;
 }
 
 .bungkus-section .detail .detail-opini .komen li p.material-symbols-rounded {
@@ -115,6 +133,10 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+}
+
+.bungkus-section .detail .bungkus-rekom h2 {
+    text-align: center;
 }
 
 .bungkus-section .detail .rekomendasi {
@@ -159,7 +181,6 @@
 }
 
 .bungkus-section .terbaru {
-    grid-area: terbaru;
     width: 100%;
     height: fit-content;
 }

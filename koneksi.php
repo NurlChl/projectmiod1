@@ -43,8 +43,10 @@ function tambah($data) {
     global $conn;                                
 
     $judul = $data["judul"];
-    $opinion = $data["isi_opini"];
-    $isi_opini = strip_tags($opinion, '<b><i><strong><em><br>');
+    $isi_opini = $data["isi_opini"];
+    $isi_opini = preg_replace('/<p>/', '', $isi_opini);
+    $isi_opini = preg_replace('/<\/p>/', '', $isi_opini);
+    // $isi_opini = strip_tags($opinion, '<b><i><strong><em><br>');
     $kategori = $data["kategori"];
     $penulis = $data["penulis"];
 
@@ -52,6 +54,8 @@ function tambah($data) {
     if (!$gambar) {
         return false;
     }
+
+    // var_dump(nl2br($isi_opini));die;
 
     $query = "INSERT INTO opini (judul, isi_opini, kategori, penulis, gambar) VALUES (?, ?, ?, ?, ?)";
     
@@ -158,6 +162,47 @@ function registrasi($data) {
 
 }
 
+
+function hapus($id_opini) {
+    global $conn;
+    mysqli_query($conn, "DELETE FROM opini WHERE id_opini = $id_opini");
+
+    return mysqli_affected_rows($conn);
+}
+
+
+function edit($data) {
+    global $conn;      
+
+    $id_opini = $data["id_opini"];
+    $judul = $data["judul"];
+    $isi_opini = $data["isi_opini"];
+    $isi_opini = preg_replace('/<p>/', '', $isi_opini);
+    $isi_opini = preg_replace('/<\/p>/', '', $isi_opini);
+    // $isi_opini = strip_tags($opinion, '<b><i><strong><em><br>');
+    $kategori = $data["kategori"];
+    $penulis = $data["penulis"];
+    $gambarLama = htmlspecialchars($data['gambarLama']);
+
+    if ( $_FILES['gambar']['error'] === 4 ) {
+        $gambar = $gambarLama;
+    } else {
+        $gambar = upload();
+    }
+
+
+    $query = "UPDATE opini SET
+                judul = '$judul',
+                isi_opini = '$isi_opini',
+                kategori = '$kategori',
+                penulis = '$penulis',
+                gambar = '$gambar'
+             WHERE id_opini = $id_opini
+            ";
+    mysqli_query($conn, $query);
+    
+    return mysqli_affected_rows($conn);
+}
 
 
 ?>

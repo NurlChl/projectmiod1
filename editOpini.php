@@ -3,26 +3,27 @@
 require_once 'navbar.php';
 require 'koneksi.php';
 
+$id_opini = $_GET['id_opini'];
+
+$opini = query("SELECT * FROM opini WHERE id_opini = $id_opini")[0];
+
+
 if (isset($_POST["simpan"])) {
     
-        if (tambah($_POST) > 0 ) {
-            echo "
-                <script>
-                    alert('data berhasil ditambahkan')
-                    document.location.href = 'index.php'
-                </script>
-            ";
-        } else {
-            echo "
-                <script>
-                    alert('data gagal ditambahkan')
-                </script>
-            ";
-        }
-    
-}
+    if (edit($_POST) > 0 ) {
+        echo "
+            <script>
+                alert('data berhasil diubah')
+                document.location.href = './'
+            </script>
+        ";
+    } else {
+       echo mysqli_error($conn);
+    }
+};
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@ if (isset($_POST["simpan"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buat Opini</title>
+    <title>Edit Opini</title>
     <link rel="stylesheet" href="buat_opini.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,8 +39,9 @@ if (isset($_POST["simpan"])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.tiny.cloud/1/xew3fiz6muk1txs3fhfjrqtw1kceo01q6tphuhqhn2cth34o/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
 
-    <script>
+<script>
         const image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         xhr.withCredentials = false;
@@ -98,42 +100,37 @@ if (isset($_POST["simpan"])) {
             images_upload_handler: image_upload_handler(),
         });
 
-
     </script>
 
-    <style>
-        .tox-statusbar, .tox-notification--in { 
-            display: none !important;
-        }
-    </style>
-</head>
 <body>
     <form action="" method="post" enctype="multipart/form-data">
-        <h1>Buat Opini</h1>
-
+        <h1>Edit Opini</h1>
+        <input type="hidden" name="id_opini" value="<?= $opini['id_opini'] ?>">
+        <input type="hidden" name="gambarLama" value="<?= $opini['gambar'] ?>"/>
         <div class="input-biasa">
             <label for="judul">Judul</label>
-            <input type="text" name="judul" id="judul" required />
+            <input type="text" name="judul" id="judul" required value="<?= $opini['judul'] ?>"/>
         </div>
 
         <div class="input-biasa">
             <label for="kategori">Kategori</label>
-            <input type="text" name="kategori" id="kategori" value="Uncategorized" required/>
+            <input type="text" name="kategori" id="kategori" value="<?= $opini['kategori'] ?>" required/>
         </div>
 
         <div class="input-biasa">
             <label for="penulis">Penulis</label>
-            <input type="text" name="penulis" id="penulis" required />
+            <input type="text" name="penulis" id="penulis" required value="<?= $opini['penulis'] ?>" />
         </div>
 
         <div class="input-biasa">
             <label for="gambar">Cover Opini</label>
-            <input type="file" name="gambar" id="gambar" required/>
+            <img src="./gambar/<?= $opini['gambar'] ?>" >
+            <input type="file" name="gambar" id="gambar" accept="image/*" />
         </div>
         
         <div class="isi-opini">
             <label for="isi_opini">Opini</label>
-            <textarea name="isi_opini" id="isi_opini" placeholder="Masukkan opini anda" required></textarea>
+            <textarea name="isi_opini" id="isi_opini" placeholder="Masukkan opini anda" required><?= nl2br($opini['isi_opini']) ?></textarea>
         </div>
 
         <button type="submit" name="simpan">Simpan</button>

@@ -23,12 +23,12 @@
         </div>
 
         <div class="copyright">
-            <img src="https://www.puthutea.com/wp-content/uploads/2018/07/logo-1.png" />
+            <img src="gambar/logoustajahcrop.png" />
 
             <ul>
                 <li>Opini</li>
                 <li>Tentang Situsweb</li>
-                <li>Bahasa Arab</li>
+                <li>MIOD Project</li>
             </ul>
             <em>@2023. All Right Reserved. Designed and Developed by MIOD</em>
         </div>

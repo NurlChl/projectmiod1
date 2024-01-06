@@ -38,25 +38,72 @@
         }
 
 
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var navbarHeight = document.querySelector('.artikel-terbaru').offsetHeight;
+        // Ubah responsivitas berdasarkan lebar layar
+        if (screenWidth > 950) {
+            document.addEventListener('DOMContentLoaded', function() {
+                var navbarHeight = document.querySelector('.artikel-terbaru').offsetHeight;
 
-            document.getElementById('myContainer').style.height = navbarHeight + 'px';
-        });
+                document.getElementById('myContainer').style.height = navbarHeight + 'px';
+            });
+            
+        }
+
+        if (screenWidth > 500) {
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("logo").style.height = "2.5rem";
+                document.getElementById("logo").style.transitionProperty = "all";
+                document.getElementById("logo").style.transitionDuration = ".2s";
+                document.getElementById("logo").style.transitionTimingFunction = "ease-in";
+                document.getElementById("navbar").style.transitionProperty = "all";
+                document.getElementById("navbar").style.transitionDuration = ".2s";
+                document.getElementById("navbar").style.transitionTimingFunction = "ease-in";
+
+            } else {
+                document.getElementById("logo").style.height = "3.5rem";
+            }
+            }
+            
+        }
+
+        if (screenWidth <= 500) {
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("logo").style.height = "1.6rem";
+                document.getElementById("logo").style.transitionProperty = "all";
+                document.getElementById("logo").style.transitionDuration = ".2s";
+                document.getElementById("logo").style.transitionTimingFunction = "ease-in";
+                document.getElementById("navbar").style.transitionProperty = "all";
+                document.getElementById("navbar").style.transitionDuration = ".2s";
+                document.getElementById("navbar").style.transitionTimingFunction = "ease-in";
+
+            } else {
+                document.getElementById("logo").style.height = "2rem";
+            }
+            }
+            
+        }
       </script>
 </head>
 <body>
 
-    <nav>
-        <img src="https://www.puthutea.com/wp-content/uploads/2018/07/logo-1.png" />
+    <nav id="navbar">
+        <img id="logo" src="https://www.puthutea.com/wp-content/uploads/2018/07/logo-1.png" />
 
         <ul>
             <a href="index.php">
                 <li>HOME</li>
             </a>
             <li>OPINI</li>
-            <li>BAHASA ARAB</li>
+            <!-- <li>BAHASA ARAB</li> -->
+            <li>TENTANG</li>
+            <li>TENTANG</li>
             <li>TENTANG</li>
         </ul>
     </nav>
@@ -67,7 +114,9 @@
             <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg" />
             <div>
                 <span class="kategori">Uncategoriez</span>
-                <h1>11 NASIHAT KRMTA POORNOMO hadiningrat</h1>
+                <a href="">
+                    <h1>11 NASIHAT KRMTA POORNOMO hadiningrat</h1>
+                </a>
                 <ul class="keterangan">
                     <p>by <span>Ustadzah</span></p>
                     <p>|</p>
@@ -309,5 +358,6 @@
             <em>@2023. All Right Reserved. Designed and Developed by MIOD</em>
         </div>
     </footer>
+
 </body>
 </html>

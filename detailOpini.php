@@ -28,13 +28,20 @@ $format_tgl->setPattern('MMMM d, y');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navbarHeight = document.querySelector('.opini-terbaru').offsetHeight;
+
+            document.getElementById('myContainer').style.height = navbarHeight + 'px';
+        });
+    </script>
     
 </head>
 
     
 </head>
 <body>
-    <div class="bungkus-section">
+    <div class="bungkus-section" id="myContainer">
         <section class="detail">
             <div class="detail-opini">
                 <h1><?= $opini['judul'] ?></h1>
@@ -47,17 +54,19 @@ $format_tgl->setPattern('MMMM d, y');
                 <p><?= nl2br($opini['isi_opini']) ?></p>
                 <ul class="komen">
                     <li>
-                        <p></p>
-                        <p>Comment</p>
+                        <p class="material-symbols-rounded">comment</p>
+                        <p class="t-komen">0 Comment</p>
                     </li>
+                    <li class="baris"></li>
                     <li>
-                        <p></p>
-                        <p></p>
+                        <p class="angka-like">2</p>
+                        <p class="material-symbols-rounded">favorite</p>
                     </li>
-                    <li>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <li class="baris"></li>
+                    <li class="share-sosmed">
+                        <span class="fa fa-facebook-f"></span>
+                        <span class="fa fa-twitter"></span>
+                        <span class="fa fa-whatsapp"></span>
                     </li>
                 </ul>
             </div>
@@ -147,6 +156,7 @@ $format_tgl->setPattern('MMMM d, y');
         </section>
     </div>
 
+    <?php include_once 'footer.php' ?>
 
     <script>
         $('.rekomendasi').slick({

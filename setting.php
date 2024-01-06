@@ -1,6 +1,9 @@
 <?php
 
+require_once 'navbar.php';
+require 'koneksi.php';
 
+$opini = query("SELECT * FROM opini ORDER BY id_opini DESC");
 
 
 ?>
@@ -30,7 +33,7 @@
             for (var i = 0; i < elements.length; i++) {
                 var element = elements[i];
                 var lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
-                var maxLines = 3; 
+                var maxLines = 1; 
                 var maxHeight = lineHeight * maxLines;
 
                 if (element.clientHeight > maxHeight) {
@@ -45,13 +48,14 @@
 </head>
 <body>
     <section class="setting">
-        <div>
+        <div class="search">
             <h1>Setting</h1>
             <ul>
                 <input type="search" name="search" placeholder="Cari...">
                 <button type="submit" name="btn-search">Cari</button>
             </ul>
         </div>
+
         <table>
             <thead>
                 <tr>
@@ -65,59 +69,33 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach ($opini as $opini) : ?>
                 <tr>
-                    <td>11 KRMTA Hadiningrat</td>
-                    <td>Uncategories</td>
+                    <td><?= $opini['judul'] ?></td>
+                    <td><?= $opini['kategori'] ?></td>
                     <td>
-                        <p class="isi">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem cumque aliquam magnam magni deleniti cupiditate similique suscipit doloremque tenetur est dolor impedit nulla voluptatibus officiis aut saepe ipsam blanditiis voluptatem, necessitatibus optio exercitationem numquam unde dignissimos? Consectetur sapiente aliquid aliquam? Omnis quasi dolores deserunt corrupti sit voluptate et odio repudiandae illo fugiat, eveniet nihil numquam fuga, commodi saepe dignissimos, labore temporibus earum nostrum distinctio cum quisquam a hic? Quod recusandae est repellat eaque, numquam quia odit ipsum ad ratione. Quos possimus adipisci repellat quasi, molestiae eveniet totam, repellendus saepe quidem fugit asperiores rerum perspiciatis iste cumque perferendis inventore commodi hic. Corporis quis asperiores reprehenderit, quisquam, similique molestias voluptatem in velit, accusamus reiciendis labore. Hic necessitatibus illo totam exercitationem cumque nulla ex et maiores rerum, odit odio repellendus distinctio expedita. Voluptatum mollitia magnam explicabo. Maxime minima eos debitis ab in rerum sapiente eveniet odit ullam necessitatibus est beatae explicabo adipisci nam, earum ad placeat libero ea, totam nisi natus sequi voluptatum delectus dolorem. Fugiat, iste. Nisi, iusto cumque consectetur provident magnam dolorem excepturi officiis error, et odit esse qui ipsa. Porro nesciunt magnam aliquid possimus. Praesentium corporis cum at laboriosam soluta, beatae, iusto esse necessitatibus excepturi alias quaerat quia non neque?
-                        </p>
+                        <p class="isi"><?= $opini['isi_opini'] ?></p>
                     </td>       
-                    <td>Ustadzah</td>
-                    <td>Januari 12, 2026</td>
-                    <td>Januari 12, 2026</td>
+                    <td><?= $opini['penulis'] ?></td>
+                    <td><?= $opini['tgl_buat'] ?></td>
+                    <td><?= $opini['tgl_ubah'] ?></td>
                     <td>
                         <div>
-                            <button type="submit" class="edit">Edit</button>
-                            <button type="submit" class="hapus">Hapus</button>
+                            <a href="editOpini.php?id_opini=<?= $opini['id_opini'] ?>">
+                                <button type="submit" name="editOpini" class="edit">Edit</button>
+                            </a>
+                            <a href="hapusOpini.php?id_opini=<?= $opini['id_opini'] ?>" onclick="
+                                    return confirm('yakin?');">
+                            <button type="submit" name="hapusOpini" class="hapus">Hapus</button>
+                            </a>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td>11 KRMTA Hadiningrat</td>
-                    <td>Uncategories</td>
-                    <td>
-                        <p class="isi">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem cumque aliquam magnam magni deleniti cupiditate similique suscipit doloremque tenetur est dolor impedit nulla voluptatibus officiis aut saepe ipsam blanditiis voluptatem, necessitatibus optio exercitationem numquam unde dignissimos? Consectetur sapiente aliquid aliquam? Omnis quasi dolores deserunt corrupti sit voluptate et odio repudiandae illo fugiat, eveniet nihil numquam fuga, commodi saepe dignissimos, labore temporibus earum nostrum distinctio cum quisquam a hic? Quod recusandae est repellat eaque, numquam quia odit ipsum ad ratione. Quos possimus adipisci repellat quasi, molestiae eveniet totam, repellendus saepe quidem fugit asperiores rerum perspiciatis iste cumque perferendis inventore commodi hic. Corporis quis asperiores reprehenderit, quisquam, similique molestias voluptatem in velit, accusamus reiciendis labore. Hic necessitatibus illo totam exercitationem cumque nulla ex et maiores rerum, odit odio repellendus distinctio expedita. Voluptatum mollitia magnam explicabo. Maxime minima eos debitis ab in rerum sapiente eveniet odit ullam necessitatibus est beatae explicabo adipisci nam, earum ad placeat libero ea, totam nisi natus sequi voluptatum delectus dolorem. Fugiat, iste. Nisi, iusto cumque consectetur provident magnam dolorem excepturi officiis error, et odit esse qui ipsa. Porro nesciunt magnam aliquid possimus. Praesentium corporis cum at laboriosam soluta, beatae, iusto esse necessitatibus excepturi alias quaerat quia non neque?
-                        </p>
-                    </td>       
-                    <td>Ustadzah</td>
-                    <td>Januari 12, 2026</td>
-                    <td>Januari 12, 2026</td>
-                    <td>
-                        <div>
-                            <button type="submit" class="edit">Edit</button>
-                            <button type="submit" class="hapus">Hapus</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>11 KRMTA Hadiningrat</td>
-                    <td>Uncategories</td>
-                    <td>
-                        <p class="isi">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem cumque aliquam magnam magni deleniti cupiditate similique suscipit doloremque tenetur est dolor impedit nulla voluptatibus officiis aut saepe ipsam blanditiis voluptatem, necessitatibus optio exercitationem numquam unde dignissimos? Consectetur sapiente aliquid aliquam? Omnis quasi dolores deserunt corrupti sit voluptate et odio repudiandae illo fugiat, eveniet nihil numquam fuga, commodi saepe dignissimos, labore temporibus earum nostrum distinctio cum quisquam a hic? Quod recusandae est repellat eaque, numquam quia odit ipsum ad ratione. Quos possimus adipisci repellat quasi, molestiae eveniet totam, repellendus saepe quidem fugit asperiores rerum perspiciatis iste cumque perferendis inventore commodi hic. Corporis quis asperiores reprehenderit, quisquam, similique molestias voluptatem in velit, accusamus reiciendis labore. Hic necessitatibus illo totam exercitationem cumque nulla ex et maiores rerum, odit odio repellendus distinctio expedita. Voluptatum mollitia magnam explicabo. Maxime minima eos debitis ab in rerum sapiente eveniet odit ullam necessitatibus est beatae explicabo adipisci nam, earum ad placeat libero ea, totam nisi natus sequi voluptatum delectus dolorem. Fugiat, iste. Nisi, iusto cumque consectetur provident magnam dolorem excepturi officiis error, et odit esse qui ipsa. Porro nesciunt magnam aliquid possimus. Praesentium corporis cum at laboriosam soluta, beatae, iusto esse necessitatibus excepturi alias quaerat quia non neque?
-                        </p>
-                    </td>       
-                    <td>Ustadzah</td>
-                    <td>Januari 12, 2026</td>
-                    <td>Januari 12, 2026</td>
-                    <td>
-                        <div>
-                            <button type="submit" class="edit">Edit</button>
-                            <button type="submit" class="hapus">Hapus</button>
-                        </div>
-                    </td>
-                </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
     </section>
+
+    <?php include_once 'footer.php' ?>
 </body>
 </html>
