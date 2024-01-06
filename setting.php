@@ -1,10 +1,20 @@
 <?php
 
+session_start();
+
 require_once 'navbar.php';
 require 'koneksi.php';
 
 $opini = query("SELECT * FROM opini ORDER BY id_opini DESC");
 
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+if (isset($_POST["cari"])) {
+    $opini = cari($_POST["search"]);
+}
 
 ?>
 
@@ -21,6 +31,9 @@ $opini = query("SELECT * FROM opini ORDER BY id_opini DESC");
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/setting.js"></script>
+
 
     <script>
           document.addEventListener("DOMContentLoaded", function() {
@@ -44,6 +57,19 @@ $opini = query("SELECT * FROM opini ORDER BY id_opini DESC");
                 }
             }
         }
+
+        function checkWindowSize() {
+            var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+            if (windowWidth < 800) {
+                alert("Hanya bisa di akses dengan layar diatas 800px");
+                
+                window.location.href = "index.php";
+            }
+        }
+
+        window.onload = checkWindowSize;
+        window.onresize = checkWindowSize;
     </script>
 </head>
 <body>
@@ -51,12 +77,15 @@ $opini = query("SELECT * FROM opini ORDER BY id_opini DESC");
         <div class="search">
             <h1>Setting</h1>
             <ul>
-                <input type="search" name="search" placeholder="Cari...">
-                <button type="submit" name="btn-search">Cari</button>
+                <input type="search" name="search" placeholder="Cari..." autofocus autocomplete="off" id="search">
+                <button type="submit" name="cari" id="button-cari">Cari</button>
+                <a href="buatOpini.php">
+                    <button>Buat Produk</button>
+                </a>
             </ul>
         </div>
 
-        <table>
+        <table id="konten">
             <thead>
                 <tr>
                     <th>Judul</th>
@@ -69,6 +98,11 @@ $opini = query("SELECT * FROM opini ORDER BY id_opini DESC");
                 </tr>
             </thead>
             <tbody>
+                <?php if(empty($opini)) : ?>
+                        <tr>
+                            <td colspan="7" style="padding: 5rem; font-size: 1.2rem; background-color: rgb(246, 246, 246);">Tidak ada produk, silahkan tambah produk.</td>
+                        </tr>
+                    <?php else : ?>
                 <?php foreach ($opini as $opini) : ?>
                 <tr>
                     <td><?= $opini['judul'] ?></td>
@@ -92,6 +126,7 @@ $opini = query("SELECT * FROM opini ORDER BY id_opini DESC");
                     </td>
                 </tr>
                 <?php endforeach ?>
+                <?php endif; ?>
             </tbody>
         </table>
     </section>

@@ -205,4 +205,16 @@ function edit($data) {
 }
 
 
+function cari ($keyword) {
+    $query = "SELECT * FROM opini
+                WHERE
+                judul LIKE '%$keyword%' OR
+                penulis LIKE '%$keyword%' OR
+                tgl_buat LIKE '%$keyword%' OR
+                tgl_ubah LIKE '%$keyword%'
+            ";
+
+    return query($query);
+}
+
 ?>

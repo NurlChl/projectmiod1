@@ -22,10 +22,10 @@ if ( isset($_COOKIE['apasi']) && isset($_COOKIE['key'])) {
 }
 
 
-// if (isset($_SESSION["login"])) {
-//     header("Location: index.php");
-//     exit;
-// }
+if (isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
 
 if (isset($_POST['login'])) {
 

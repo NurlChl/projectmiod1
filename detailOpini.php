@@ -1,11 +1,15 @@
 <?php
 
+session_start();
+
 require 'koneksi.php';
 include_once 'navbar.php';
 
 $id_opini = $_GET['id_opini'];
 
 $opini = query("SELECT * FROM opini WHERE id_opini = $id_opini")[0];
+$opiniTerbaru = query("SELECT * FROM opini ORDER BY id_opini DESC");
+
 
 $format_tgl = new \IntlDateFormatter('id_ID', \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
 $format_tgl->setPattern('MMMM d, y');
@@ -50,7 +54,7 @@ $format_tgl->setPattern('MMMM d, y');
                     <p>|</p>
                     <p><?= $format_tgl->format(strtotime($opini['tgl_buat']))  ?></p>
                 </ul>
-                <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
+                <img src="gambar/<?= $opini['gambar'] ?>"/>
                 <p><?= nl2br($opini['isi_opini']) ?></p>
                 <ul class="komen">
                     <li>
@@ -96,62 +100,22 @@ $format_tgl->setPattern('MMMM d, y');
     
         <section class="terbaru">
             <div class="opini-terbaru">
+                <?php foreach ($opiniTerbaru as $opiniTerbaru) : ?>
                 <div>
-                    <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
+                    <img src="gambar/<?= $opiniTerbaru['gambar'] ?>"/>
                     <ul>
-                        <h1>11 Nasihat KRMTA Poornomo Hadiningrat</h1>
-                        <p>May 12, 2020</p>
+                        <h1><?= $opiniTerbaru['judul'] ?></h1>
+                        <?php
+                            
+                            $tglBuatTerbaru = strtotime($opiniTerbaru['tgl_buat']);
+                            $formatTglTerbaru = $format_tgl->format($tglBuatTerbaru);
+
+                            
+                        ?>
+                        <p><?= $formatTglTerbaru ?></p>
                     </ul>
                 </div>
-                <div>
-                    <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                    <ul>
-                        <h1>11 Nasihat KRMTA Poornomo Hadiningrat</h1>
-                        <p>May 12, 2020</p>
-                    </ul>
-                </div>
-                <div>
-                    <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                    <ul>
-                        <h1>11 Nasihat KRMTA Poornomo Hadiningrat</h1>
-                        <p>May 12, 2020</p>
-                    </ul>
-                </div>
-                <div>
-                    <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                    <ul>
-                        <h1>11 Nasihat KRMTA Poornomo Hadiningrat</h1>
-                        <p>May 12, 2020</p>
-                    </ul>
-                </div>
-                <div>
-                    <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                    <ul>
-                        <h1>11 Nasihat KRMTA Poornomo Hadiningrat</h1>
-                        <p>May 12, 2020</p>
-                    </ul>
-                </div>
-                <div>
-                    <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                    <ul>
-                        <h1>11 Nasihat KRMTA Poornomo Hadiningrat</h1>
-                        <p>May 12, 2020</p>
-                    </ul>
-                </div>
-                <div>
-                    <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                    <ul>
-                        <h1>11 Nasihat KRMTA Poornomo Hadiningrat</h1>
-                        <p>May 12, 2020</p>
-                    </ul>
-                </div>
-                <div>
-                    <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                    <ul>
-                        <h1>11 Nasihat KRMTA Poornomo Hadiningrat</h1>
-                        <p>May 12, 2020</p>
-                    </ul>
-                </div>
+                <?php endforeach ?>
             </div>
         </section>
     </div>

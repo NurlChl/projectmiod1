@@ -309,7 +309,7 @@ nav ul li:hover {
 .artikel-terbaru {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     width: 100%;
     height: fit-content;
 }

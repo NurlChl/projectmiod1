@@ -1,7 +1,19 @@
 <?php
 
+session_start();
+
 require_once 'navbar.php';
 require 'koneksi.php';
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+if ($_SESSION["posisi"] === "user") {
+    header("Location: index.php");
+    exit;
+}
 
 $id_opini = $_GET['id_opini'];
 

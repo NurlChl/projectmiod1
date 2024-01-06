@@ -1,7 +1,19 @@
 <?php
 
+session_start();
+
 require_once 'navbar.php';
 require 'koneksi.php';
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+// if ($_SESSION["posisi"] === "admin") {
+//     header("Location: index.php");
+//     exit;
+// }
 
 if (isset($_POST["simpan"])) {
     
@@ -101,11 +113,11 @@ if (isset($_POST["simpan"])) {
 
     </script>
 
-    <style>
+    <!-- <style>
         .tox-statusbar, .tox-notification--in { 
             display: none !important;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <form action="" method="post" enctype="multipart/form-data">
@@ -128,12 +140,12 @@ if (isset($_POST["simpan"])) {
 
         <div class="input-biasa">
             <label for="gambar">Cover Opini</label>
-            <input type="file" name="gambar" id="gambar" required/>
+            <input type="file" name="gambar" id="gambar"/>
         </div>
         
         <div class="isi-opini">
             <label for="isi_opini">Opini</label>
-            <textarea name="isi_opini" id="isi_opini" placeholder="Masukkan opini anda" required></textarea>
+            <textarea name="isi_opini" id="isi_opini" placeholder="Masukkan opini anda" ></textarea>
         </div>
 
         <button type="submit" name="simpan">Simpan</button>
