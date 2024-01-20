@@ -24,6 +24,21 @@ require 'koneksi.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <nav id="navbar">
+        <img id="logo" src="https://www.puthutea.com/wp-content/uploads/2018/07/logo-1.png" />
+
+        <ul>
+            <a href="index.php">
+                <li>HOME</li>
+            </a>
+            <li>OPINI</li>
+            <!-- <li>BAHASA ARAB</li> -->
+            <li>TENTANG</li>
+            <li>TENTANG</li>
+            <li>TENTANG</li>
+        </ul>
+    </nav>
+
     <section class="tentang">
         <h1>Tentang</h1>
         <img src="gambar/ustajah.JPG">
@@ -38,19 +53,39 @@ require 'koneksi.php';
             </div>
             <div class="share">
                 <li class="text-share">Share</li>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.puthutea.com/" target="_blank">
-                    <li class="fa fa-facebook"></li>
-                </a>
-                <a href="https://twitter.com/intent/tweet?url=https://www.puthutea.com/&text=Check out this awesome website" target="_blank">
-                    <li class="fa fa-twitter"></li>
-                </a>
-                <a href="whatsapp://send?text=Kunjungi Link Website Berikut: https://www.puthutea.com/" data-action="share/whatsapp/share">
-                    <li class="fa fa-whatsapp"></li>
-                </a>
+                <li class="fa fa-facebook"></li>
+                <li class="fa fa-twitter"></li>
+                <li class="fa fa-whatsapp"></li>
             </div>
         </div>
     </section>
 
-    <?php include_once 'footer.php'; ?>
+    <footer>
+        <div class="sosmed">
+            <ul>
+                <li class="fa fa-facebook"></li>
+                <li>FACEBOOK</li>
+            </ul>
+            <ul>
+                <li class="fa fa-instagram"></li>
+                <li>INSTAGRAM</li>
+            </ul>
+            <ul>
+                <li class="fa fa-whatsapp"></li>
+                <li>WHATSAPP</li>
+            </ul>
+        </div>
+
+        <div class="copyright">
+            <img src="https://www.puthutea.com/wp-content/uploads/2018/07/logo-1.png" />
+
+            <ul>
+                <li>Opini</li>
+                <li>Tentang Situsweb</li>
+                <li>Bahasa Arab</li>
+            </ul>
+            <em>@2023. All Right Reserved. Designed and Developed by MIOD</em>
+        </div>
+    </footer>
 </body>
 </html>

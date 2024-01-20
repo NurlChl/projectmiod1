@@ -58,6 +58,7 @@ $format_tgl->setPattern('MMMM d, y');
 
             document.getElementById('myContainer').style.height = navbarHeight + 'px';
         });
+        
       </script>
 
 </head>
@@ -89,14 +90,20 @@ $format_tgl->setPattern('MMMM d, y');
                 </div>
                 <div class="bungkus-sosmed">
                     <ul class="komen">
-                        <li class="material-symbols-rounded">maps_ugc</li>
-                        <li>Comment,</li>
+                        <!-- <li class="material-symbols-rounded">maps_ugc</li> -->
+                        <li>Share,</li>
                     </ul>
                     <ul>
                         <li class="baris"></li>
-                        <li class="fa fa-facebook"></li>
-                        <li class="fa fa-twitter"></li>
-                        <li class="fa fa-whatsapp"></li> 
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.puthutea.com/" target="_blank">
+                            <li class="fa fa-facebook"></li>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url=https://www.puthutea.com/&text=Check out this awesome website" target="_blank">
+                            <li class="fa fa-twitter"></li>
+                        </a>
+                        <a href="whatsapp://send?text=Kunjungi Link Website Berikut: https://localhost/projectmiod1/detailOpini.php?id_opini=<?= $opini['id_opini']?>" data-action="share/whatsapp/share">
+                            <li class="fa fa-whatsapp"></li> 
+                        </a>
                         <li class="baris"></li>
                     </ul>
                 </div>
@@ -117,7 +124,6 @@ $format_tgl->setPattern('MMMM d, y');
                             
                             $tglBuatTerbaru = strtotime($opiniTerbaru['tgl_buat']);
                             $formatTglTerbaru = $format_tgl->format($tglBuatTerbaru);
-
                             
                             ?>
                             <p><?= $formatTglTerbaru ?></p>

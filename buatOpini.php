@@ -10,28 +10,27 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 
-// if ($_SESSION["posisi"] === "admin") {
-//     header("Location: index.php");
-//     exit;
-// }
+if ($_SESSION["posisi"] === "user") {
+    header("Location: index.php");
+    exit;
+}
 
 if (isset($_POST["simpan"])) {
     
-        if (tambah($_POST) > 0 ) {
-            echo "
-                <script>
-                    alert('data berhasil ditambahkan')
-                    document.location.href = 'index.php'
-                </script>
-            ";
-        } else {
-            echo "
-                <script>
-                    alert('data gagal ditambahkan')
-                </script>
-            ";
-        }
-    
+    if (tambah($_POST) > 0 ) {
+        echo "
+            <script>
+                alert('data berhasil dibuat')
+                document.location.href = './index.php'
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('data gagal dibuat')
+            </script>
+        ";
+    }
 }
 
 ?>
@@ -110,7 +109,6 @@ if (isset($_POST["simpan"])) {
             images_upload_handler: image_upload_handler(),
         });
 
-
     </script>
 
     <!-- <style>
@@ -140,12 +138,12 @@ if (isset($_POST["simpan"])) {
 
         <div class="input-biasa">
             <label for="gambar">Cover Opini</label>
-            <input type="file" name="gambar" id="gambar"/>
+            <input type="file" name="gambar" id="gambar" accept="image/*"/>
         </div>
-        
+
         <div class="isi-opini">
             <label for="isi_opini">Opini</label>
-            <textarea name="isi_opini" id="isi_opini" placeholder="Masukkan opini anda" ></textarea>
+            <textarea name="isi_opini" id="isi_opini" placeholder="Masukkan opini anda"></textarea>
         </div>
 
         <button type="submit" name="simpan">Simpan</button>

@@ -17,13 +17,74 @@
 
     <style>
         .active {
-            color: rgb(30, 124, 255);
+            color: #C06944
         }
     </style>
+
+    <script>
+
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+        // Ubah responsivitas berdasarkan lebar layar
+        if (screenWidth > 950) {
+            document.addEventListener('DOMContentLoaded', function() {
+                var navbarHeight = document.querySelector('.artikel-terbaru').offsetHeight;
+
+                document.getElementById('myContainer').style.height = navbarHeight + 'px';
+            });
+            
+        }
+
+        if (screenWidth > 500) {
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("logo").style.height = "2.5rem";
+                document.getElementById("logo").style.transitionProperty = "all";
+                document.getElementById("logo").style.transitionDuration = ".2s";
+                document.getElementById("logo").style.transitionTimingFunction = "ease-in";
+                document.getElementById("navbar").style.boxShadow = " 0px 2px 2px 1px rgba(0,0,0,0.05)";
+                document.getElementById("navbar").style.transitionProperty = "all";
+                document.getElementById("navbar").style.transitionDuration = ".2s";
+                document.getElementById("navbar").style.transitionTimingFunction = "ease-in";
+
+            } else {
+                document.getElementById("logo").style.height = "3.5rem";
+                document.getElementById("navbar").style.boxShadow = "none";
+            }
+            }
+            
+        }
+
+        if (screenWidth <= 500) {
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("logo").style.height = "1.5rem";
+                document.getElementById("logo").style.transitionProperty = "all";
+                document.getElementById("logo").style.transitionDuration = ".2s";
+                document.getElementById("logo").style.transitionTimingFunction = "ease-in";
+                document.getElementById("navbar").style.boxShadow = " 0px 2px 2px 1px rgba(0,0,0,0.05)";
+                document.getElementById("navbar").style.transitionProperty = "all";
+                document.getElementById("navbar").style.transitionDuration = ".2s";
+                document.getElementById("navbar").style.transitionTimingFunction = "ease-in";
+
+            } else {
+                document.getElementById("logo").style.height = "2rem";
+                document.getElementById("navbar").style.boxShadow = "none";
+            }
+            }
+            
+        }
+    </script>
 </head>
 <body>
-    <nav>
-        <img src="gambar/logoustajahcrop.png" />
+    <nav id="navbar">
+        <a href="tentang.php">
+            <img src="gambar/logoustajahcrop.png" id="logo"/>
+        </a>
 
         <ul>
             <a href="index.php">
@@ -31,8 +92,16 @@
             </a>
             <!-- <li>OPINI</li> -->
             <!-- <li>BAHASA ARAB</li> -->
-            <li>TENTANG</li>
-            <?php 
+            <!-- <a href="tentang.php">
+                <li <?php if (strpos($_SERVER['PHP_SELF'], 'tentang.php')) echo 'class=active'; ?>>TENTANG</li>
+            </a> -->
+            <a href="artikel.php">
+                <li <?php if (strpos($_SERVER['PHP_SELF'], 'artikel.php')) echo 'class=active'; ?>>ARTIKEL</li>
+            </a>
+            <a href="buku.php">
+                <li <?php if (strpos($_SERVER['PHP_SELF'], 'buku.php')) echo 'class=active'; ?>>BUKU</li>
+            </a>
+            <?php
             if (isset($_SESSION["posisi"])) {
 
                 if ($_SESSION["posisi"] === "admin") {?>
@@ -48,7 +117,7 @@
             </a>
             <?php else : ?>
                 <a href="logout.php">
-                    <li class="btn-login" style="color: red;">Logout</li>
+                    <li class="btn-login" style="color: #D12539;">Logout</li>
                 </a>
             <?php endif; ?>
         </ul>

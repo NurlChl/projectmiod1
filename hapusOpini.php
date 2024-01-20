@@ -15,6 +15,4 @@ if (hapus($id_opini) > 0 ) {
     echo mysqli_error($conn);
 }
 
-
-
 ?>

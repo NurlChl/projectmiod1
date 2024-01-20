@@ -29,6 +29,7 @@ nav {
     align-items: center;
     position: fixed;
     top: 0;
+    z-index: 100;
     width: 100%;
     background-color: white;
 }
@@ -48,11 +49,12 @@ nav ul {
 
 nav ul li {
     text-transform: uppercase;
-    font-size: .9rem;
+    font-size: .8rem;
     cursor: pointer;
+    font-weight: 500;
 }
 nav ul li:hover {
-    color: red;
+    color: #0090A3;
     transition: all .2s ease;
 }
 
@@ -80,7 +82,7 @@ nav ul li:hover {
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     overflow-y: auto;
 }
 
@@ -92,8 +94,8 @@ nav ul li:hover {
 .kotak-artikel .artikel span.kategori {
     font-weight: 400;
     font-size: .9rem;
-    color: green;
-    cursor: pointer;
+    color: #C06944;
+    /* cursor: pointer; */
 }
 
 .kotak-artikel .artikel:nth-child(3n+1) {
@@ -127,6 +129,7 @@ nav ul li:hover {
     flex-direction: column;
     gap: 2rem;
     justify-content: space-between;
+    height: fit-content;
     max-height: 40rem;
 }
 
@@ -225,12 +228,12 @@ nav ul li:hover {
 }
 
 .kotak-artikel .artikel:nth-child(3n+1) div span.baris {
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid #3B5190;
     width: 4rem;
 }
 
 .kotak-artikel .artikel:nth-child(3n+2) div span.baris, .kotak-artikel .artikel:nth-child(3n+3) div span.baris {
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid #3B5190;
     width: 4rem;
     margin: 0 auto;
 }
@@ -249,7 +252,7 @@ nav ul li:hover {
 }
 
 .kotak-artikel .artikel.artikel div p.text-ellipsis a {
-    color: orange;
+    color: #2EBAB8;
 }
 
 .kotak-artikel .artikel div {
@@ -293,6 +296,10 @@ nav ul li:hover {
 
 }
 
+.kotak-artikel .artikel div.bungkus-sosmed ul li {
+    cursor: pointer;
+}
+
 .kotak-artikel .artikel:nth-child(3n+1) div.bungkus-sosmed ul .baris {
     display: none;
 } 
@@ -311,6 +318,7 @@ nav ul li:hover {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    min-height: 90vh;
     height: fit-content;
 }
 
@@ -364,7 +372,7 @@ nav ul li:hover {
     text-transform: capitalize;
 }
 .artikel-terbaru div ul div li h1:hover {
-    color: green;
+    color: gray;
     transition: all .2s ease-in-out;
 }
 
@@ -392,7 +400,7 @@ footer div.sosmed {
     justify-content: center;
     padding: 2rem;
     border-bottom: 1px solid black;
-    margin: 0 10rem;
+    margin: 0 5rem;
 }
 
 footer div.sosmed ul {
@@ -403,13 +411,18 @@ footer div.sosmed ul {
 }
 
 footer div.sosmed ul {
-    color: orange;
+    color: #2EBAB8;
     cursor: pointer;
 }
 
 footer div.sosmed ul:hover, footer div.sosmed ul:hover li {
-    color: green;
-    border-color: green;
+    color: #3B5190;
+    border-color: #3B5190;
+    transition: all .2s ease-in-out;
+}
+footer div.sosmed ul:hover li.fa {
+    background-color: #3B5190;
+    color: white;
     transition: all .2s ease-in-out;
 }
 
@@ -420,7 +433,7 @@ footer div.sosmed li.fa {
     justify-content: center;
     align-items: center;
     border-radius: 100rem;
-    border: 1px solid orange;
+    border: 1px solid #2EBAB8;
     cursor: pointer;
     padding: 1.5rem;
     font-size: 1.3rem;
@@ -557,7 +570,7 @@ footer div.copyright em {
     .kotak-artikel .artikel span.kategori {
         font-weight: 400;
         font-size: .9rem;
-        color: green;
+        color: #3B5190;
         cursor: pointer;
     }
     
@@ -660,7 +673,7 @@ footer div.copyright em {
     }
     
     .kotak-artikel .artikel:nth-child(3n+1) div span.baris, .kotak-artikel .artikel:nth-child(3n+2) div span.baris, .kotak-artikel .artikel:nth-child(3n+3) div span.baris {
-        border-bottom: 1px solid green;
+        border-bottom: 1px solid #3B5190;
         width: 4rem;
         margin: 0;
         transform: translateY(-10px);
@@ -680,7 +693,7 @@ footer div.copyright em {
     }
     
     .kotak-artikel .artikel.artikel div p.text-ellipsis a {
-        color: orange;
+        color: #2EBAB8;
     }
     
     .kotak-artikel .artikel div {
@@ -801,7 +814,7 @@ footer div.copyright em {
         text-transform: capitalize;
     }
     .artikel-terbaru div ul div li h1:hover {
-        color: green;
+        color: #3B5190;
         transition: all .2s ease-in-out;
     }
     
@@ -840,13 +853,13 @@ footer div.copyright em {
     }
     
     footer div.sosmed ul {
-        color: orange;
+        color: #2EBAB8;
         cursor: pointer;
     }
     
     footer div.sosmed ul:hover, footer div.sosmed ul:hover li {
-        color: green;
-        border-color: green;
+        color: #3B5190;
+        border-color: #3B5190;
         transition: all .2s ease-in-out;
     }
     
@@ -857,7 +870,7 @@ footer div.copyright em {
         justify-content: center;
         align-items: center;
         border-radius: 100rem;
-        border: 1px solid orange;
+        border: 1px solid #2EBAB8;
         cursor: pointer;
         padding: 1.5rem;
         font-size: 1.3rem;
@@ -1001,7 +1014,7 @@ footer div.copyright em {
     .kotak-artikel .artikel span.kategori {
         font-weight: 400;
         font-size: .9rem;
-        color: green;
+        color: #3B5190;
         cursor: pointer;
     }
     
@@ -1110,7 +1123,7 @@ footer div.copyright em {
     }
     
     .kotak-artikel .artikel:nth-child(3n+1) div span.baris, .kotak-artikel .artikel:nth-child(3n+2) div span.baris, .kotak-artikel .artikel:nth-child(3n+3) div span.baris {
-        border-bottom: 1px solid green;
+        border-bottom: 1px solid #3B5190;
         width: 4rem;
         margin: 0;
         transform: translateY(-10px);
@@ -1130,7 +1143,7 @@ footer div.copyright em {
     }
     
     .kotak-artikel .artikel.artikel div p.text-ellipsis a {
-        color: orange;
+        color: #2EBAB8;
     }
     
     .kotak-artikel .artikel div {
@@ -1251,7 +1264,7 @@ footer div.copyright em {
         text-transform: capitalize;
     }
     .artikel-terbaru div ul div li h1:hover {
-        color: green;
+        color: #3B5190;
         transition: all .2s ease-in-out;
     }
     
@@ -1290,13 +1303,13 @@ footer div.copyright em {
     }
     
     footer div.sosmed ul {
-        color: orange;
+        color: #2EBAB8;
         cursor: pointer;
     }
     
     footer div.sosmed ul:hover, footer div.sosmed ul:hover li {
-        color: green;
-        border-color: green;
+        color: #3B5190;
+        border-color: #3B5190;
         transition: all .2s ease-in-out;
     }
     
@@ -1311,7 +1324,7 @@ footer div.copyright em {
         justify-content: center;
         align-items: center;
         border-radius: 100rem;
-        border: 1px solid orange;
+        border: 1px solid #2EBAB8;
         cursor: pointer;
         padding: .8rem;
         font-size: 1rem;

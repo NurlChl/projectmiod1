@@ -80,7 +80,7 @@ if (isset($_POST["cari"])) {
                 <input type="search" name="search" placeholder="Cari..." autofocus autocomplete="off" id="search">
                 <button type="submit" name="cari" id="button-cari">Cari</button>
                 <a href="buatOpini.php">
-                    <button>Buat Produk</button>
+                    <button>Buat Opini</button>
                 </a>
             </ul>
         </div>
