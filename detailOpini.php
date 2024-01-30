@@ -16,6 +16,8 @@ $banyakKOmen = query("SELECT COUNT(*) as jumlah FROM komen WHERE id_opini = $id_
 $format_tgl = new \IntlDateFormatter('id_ID', \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
 $format_tgl->setPattern('MMMM d, y');
 
+
+
 if (isset($_POST["kirim_komen"])) {
     
     if (tambahKomen($_POST) > 0 ) {
@@ -43,7 +45,7 @@ if (isset($_POST["kirim_komen"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail</title>
+    <title><?= $opini['judul'] ?></title>
     <link rel="stylesheet" href="detail_opini.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,6 +123,19 @@ if (isset($_POST["kirim_komen"])) {
                         <p class="t-komen"><?= $banyakKOmen['jumlah'] ?> Comment</p>
                     </li>
                     <li class="baris"></li>
+                    <?php
+                    // $username = $_SESSION['username'];
+                    // $ambilIdUser = query("SELECT id_user FROM users WHERE username = $username");
+                    // $id_user = $ambilIdUser;
+
+                    // $likesCount = query("SELECT COUNT(*) AS likes FROM likes WHERE id_opini = $id_opini AND status = 'like'")['likes'];
+
+                    // $status = mysqli_query($conn, "SELECT status FROM likes WHERE id_opini = $id_opini AND id_user = $id_user");
+
+                    // if (mysqli_num_rows($status) > 0 )  {
+                    //     $status = mysqli_fetch_assoc($status)['status'];
+                    // }
+                    ?>
                     <li>
                         <p class="angka-like">2</p>
                         <p class="material-symbols-rounded liked" id="pencet-like">favorite</p>
