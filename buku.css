@@ -82,3 +82,19 @@
 .sec-buku .share-buku i {
     cursor: pointer;
 }
+
+.sec-buku .share-buku .tambah-buku {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec-buku .share-buku .tambah-buku button {
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+

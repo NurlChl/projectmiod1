@@ -25,10 +25,10 @@ a {
 
 .detail-buku {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 2rem;
+    /* grid-template-columns: 3fr 1fr; */
+    /* gap: 2rem; */
     margin-top: 10rem;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     padding: 0 10rem;
 }
 
@@ -53,8 +53,14 @@ a {
     gap: 1rem;
 }
 
+.detail-buku .luar-detail-buku .desc li {
+    color: gray;
+    font-size: .9rem;
+}
+
 .detail-buku .luar-detail-buku .desc span {
     font-weight: 500;
+    color: black;
 }
 
 .detail-buku .luar-detail-buku .isi-detail {
@@ -97,9 +103,58 @@ a {
     gap: 1rem;
 }
 
+.detail-buku .luar-detail-buku .isi-detail .dalam-detail .quotes div {
+    font-family: "BIZ UDPMincho";
+    font-size: 4rem;
+    color: red;
+    transform: scale(-1, -1);
+    height: 1.5rem;
+}
+
+.detail-buku .luar-detail-buku .isi-detail .dalam-detail .quotes p {
+    line-height: 1.5rem;
+    color: gray;
+    font-style: italic;
+}
+
 .detail-buku .luar-detail-buku .bawah-detail {
     display: flex;
     flex-direction: column;
+    gap: .5rem;
+}
+
+.detail-buku .luar-detail-buku .bawah-detail a {
+    color: red;
+    cursor: pointer;
+}
+
+.detail-buku .luar-detail-buku .bawah-detail .aksi {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.detail-buku .luar-detail-buku .bawah-detail .aksi button {
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.detail-buku .luar-detail-buku .bawah-detail .aksi .edit {
+    background-color: yellow;
+}
+.detail-buku .luar-detail-buku .bawah-detail .aksi .edit:hover {
+    background-color: rgb(243, 243, 3);
+}
+
+.detail-buku .luar-detail-buku .bawah-detail .aksi .hapus {
+    background-color: red;
+    color: white;
+}
+.detail-buku .luar-detail-buku .bawah-detail .aksi .hapus:hover {
+    background-color: rgb(235, 0, 0);
 }
 
 .detail-buku .luar-detail-buku .share {
@@ -127,7 +182,14 @@ a {
 .detail-buku .luar-detail-buku .share .medsos {
     display: flex;
     flex-direction: row;
-    gap: .5rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-buku .luar-detail-buku .share .medsos p {
+    font-size: .8rem;
+    font-weight: 500;
 }
 
 .detail-buku .terbaru {

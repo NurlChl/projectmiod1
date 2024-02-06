@@ -247,4 +247,86 @@ function tambahKomen($data) {
 
 }
 
+
+
+function uploadBuku() {
+
+    $namaFile = $_FILES['gambar_buku']['name'];
+    $ukuranFile = $_FILES['gambar_buku']['size'];
+    $error = $_FILES['gambar_buku']['error'];
+    $tmpName = $_FILES['gambar_buku']['tmp_name'];
+
+    if ( $error === 4 ) {
+        echo "
+            <script>
+                alert('Pilih gambar terlebih dahulu')
+            </script>
+        ";
+        return false;
+    }
+
+    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+    if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+        echo "
+            <script>
+                alert('Yang anda aplod bukan gambar')
+            </script>
+        ";
+        return false;
+    }
+
+    if ($ukuranFile > 10000000) {
+        echo "
+        <script>
+            alert('Ukuran gambar terlalu besar')
+        </script>
+        ";
+        return false;
+    }
+
+    $namaFIleBaru = uniqid();
+    $namaFIleBaru .= '.';
+    $namaFIleBaru .= $ekstensiGambar;
+
+    move_uploaded_file($tmpName, 'gambar_buku/' . $namaFIleBaru);
+
+    return $namaFIleBaru;
+
+}
+
+function tambahBuku($data) {
+    global $conn;                                
+
+    $judul_buku = $data["judul_buku"];
+    $written_by = $data["written_by"];
+    $publish_by = $data["publish_by"];
+    $tgl_rilis = $data["tgl_rilis"];
+    $genre = $data["genre"];
+    $pages = $data["pages"];
+    $isbn = $data["isbn"];
+    $quotes = $data["quotes"];
+    $deskripsi_buku = $data["deskripsi_buku"];
+    $link_pembelian = $data["link_pembelian"];
+
+    $gambar_buku = uploadBuku();
+    if (!$gambar_buku) {
+        return false;
+    }
+
+
+    $query = "INSERT INTO buku
+            (judul_buku, written_by, publish_by, tgl_rilis, genre, pages, isbn, quotes, deskripsi_buku, gambar_buku, link_pembelian)
+            VALUES
+            ('$judul_buku', '$written_by', '$publish_by', '$tgl_rilis', '$genre', $pages, $isbn, '$quotes', '$deskripsi_buku', '$gambar_buku', '$link_pembelian')
+            ";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+
+}
+
+
 ?>

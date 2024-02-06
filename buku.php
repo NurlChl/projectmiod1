@@ -22,6 +22,23 @@ require 'koneksi.php';
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .sec-buku .share-buku .tambah-buku {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sec-buku .share-buku .tambah-buku button {
+            padding: .5rem 1rem;
+            border: none;
+            border-radius: .5rem;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <section class="sec-buku">
@@ -64,6 +81,11 @@ require 'koneksi.php';
         </div>
 
         <div class="share-buku">
+            <div class="tambah-buku">
+                <a href="tambahBuku.php">
+                    <button>Tambah Buku</button>
+                </a>
+            </div>
             <p>Share</p>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.puthutea.com/" target="_blank">
                 <i class="fa fa-facebook"></i>
@@ -75,6 +97,7 @@ require 'koneksi.php';
                 <i class="fa fa-whatsapp"></i>
             </a>
         </div>
+
     </section>
 
     <?php include_once 'footer.php' ?>
