@@ -5,6 +5,17 @@ session_start();
 require "koneksi.php";
 require_once "navbar.php";
 
+$id_buku = $_GET['id_buku'];
+
+$buku = query("SELECT * FROM buku WHERE id_buku = $id_buku")[0];
+
+$format_tgl = new \IntlDateFormatter('id_ID', \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
+$format_tgl->setPattern('MMMM d, y');
+
+
+$format_rilis = new \IntlDateFormatter('id_ID', \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
+$format_rilis ->setPattern('d MMMM y');
+
 ?>
 
 
@@ -22,55 +33,80 @@ require_once "navbar.php";
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .detail-buku .luar-detail-buku {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: start;
+        }
+    </style>
 </head>
 <body>
     <section class="detail-buku">
         <div class="luar-detail-buku">
             <div class="bungkus-desc">
-                <h2>Kupu-Kupu Bersayap Gelap</h2>
+                <h2><?= $buku['judul_buku'] ?></h2>
                 <ul class="desc">
-                    <li>written by <span>Ustadzah</span></li>
+                    <li>written by <span><?= $buku['written_by'] ?></span></li>
                     <li>|</li>
-                    <li>Agustus 11, 2023</li>
+                    <?php
+                        
+                        $tglUp = strtotime($buku['tgl_up']);
+                        $formatTgl = $format_rilis->format($tglUp);
+
+                        
+                        ?>
+                    <li><?= $formatTgl ?></li>
                 </ul>
             </div>
             <div class="isi-detail">
-                <img src="gambar_buku/kupu-kupubersayap.jpg">
+                <img src="gambar_buku/<?= $buku['gambar_buku'] ?>">
                 <div class="dalam-detail">
                     <ul class="keterangan">
                         <li>
                             <p class="bold">Title:</p>
-                            <p>Kupu-Kupu bersayap gelap</p>
+                            <p><?= $buku['judul_buku'] ?></p>
                         </li>
                         <li>
                             <p class="bold">Published by:</p>
-                            <p>Buku Mojok</p>
+                            <p><?= $buku['publish_by'] ?></p>
                         </li>
+                        <?php
+                        $tlgRilis = strtotime($buku['tgl_rilis']);
+                        $formatRilis = $format_rilis->format($tlgRilis);
+
+                        ?>
                         <li>
                             <p class="bold">Release Date:</p>
-                            <p>Februari 2012</p>
+                            <p><?= $formatRilis ?></p>
                         </li>
                         <li>
                             <p class="bold">Genre:</p>
-                            <p>Fiksi</p>
+                            <p><?= $buku['genre'] ?></p>
                         </li>
                         <li>
                             <p class="bold">Pages:</p>
-                            <p>167</p>
+                            <p><?= $buku['pages'] ?></p>
                         </li>
                     </ul>
                     <ul class="quotes">
                         <div>"</div>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam nihil nisi quod tenetur ducimus. Quaerat incidunt odit natus voluptatum, ea eum. Sunt id suscipit minus, doloremque repudiandae omnis beatae architecto! Hic quam assumenda dolorem nostrum magni, eos facere ea nesciunt!</p>
+                        <p><?= $buku['quotes'] ?></p>
                     </ul>
                 </div>
             </div>
             <div class="bawah-detail">
-                <a href="">Beli Sekarang</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptates ipsum! Delectus libero repudiandae accusamus dolorum vel modi tenetur harum?</p>
+                <a href="<?= $buku['link_pembelian'] ?>" target="_blank">Beli Sekarang</a>
+                <p><?= $buku['deskripsi_buku'] ?></p>
                 <div class="aksi">
-                    <button class="edit">Edit</button>
-                    <button class="hapus">Hapus</button>
+                    <a href="editBuku.php?id_buku=<?= $id_buku ?>">
+                        <button class="edit">Edit</button>
+                    </a>
+                    <a href="hapusBuku.php?id_buku=<?= $id_buku ?>">
+                        <button class="hapus">Hapus</button>
+                    </a>
                 </div>
             </div>
             <div class="share">

@@ -32,12 +32,12 @@ a {
     padding: 0 10rem;
 }
 
-.detail-buku .luar-detail-buku {
+/* .detail-buku .luar-detail-buku {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    align-items: center;
-}
+    align-items: start;
+} */
 
 .detail-buku .luar-detail-buku .bungkus-desc {
     display: flex;

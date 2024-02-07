@@ -5,6 +5,7 @@ session_start();
 require_once 'navbar.php';
 require 'koneksi.php';
 
+$buku = query("SELECT * FROM buku ORDER BY id_buku DESC");
 
 ?>
 
@@ -45,38 +46,16 @@ require 'koneksi.php';
         <div class="luar-buku">
             <h2>Buku</h2>
             <div class="list-buku">
+                <?php foreach ($buku as $buku): ?>
                 <div class="buku">
-                    <img src="gambar_buku/kupu-kupubersayap.jpg"/>
-                    <button>Lihat Buku</button>
+                    <a href="./detailBuku.php?id_buku=<?= $buku['id_buku'] ?>">
+                        <img src="gambar_buku/<?= $buku['gambar_buku'] ?>"/>
+                    </a>
+                    <a href="./detailBuku.php?id_buku=<?= $buku['id_buku'] ?>">
+                        <button>Lihat Buku</button>
+                    </a>
                 </div>
-                <div class="buku">
-                    <img src="gambar_buku/kupu-kupubersayap.jpg"/>
-                    <button>Lihat Buku</button>
-                </div>
-                <div class="buku">
-                    <img src="gambar_buku/kupu-kupubersayap.jpg"/>
-                    <button>Lihat Buku</button>
-                </div>
-                <div class="buku">
-                    <img src="gambar_buku/kupu-kupubersayap.jpg"/>
-                    <button>Lihat Buku</button>
-                </div>
-                <div class="buku">
-                    <img src="gambar_buku/kupu-kupubersayap.jpg"/>
-                    <button>Lihat Buku</button>
-                </div>
-                <div class="buku">
-                    <img src="gambar_buku/kupu-kupubersayap.jpg"/>
-                    <button>Lihat Buku</button>
-                </div>
-                <div class="buku">
-                    <img src="gambar_buku/kupu-kupubersayap.jpg"/>
-                    <button>Lihat Buku</button>
-                </div>
-                <div class="buku">
-                    <img src="gambar_buku/kupu-kupubersayap.jpg"/>
-                    <button>Lihat Buku</button>
-                </div>
+                <?php endforeach ?>
             </div>
         </div>
 

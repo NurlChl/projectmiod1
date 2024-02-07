@@ -328,5 +328,53 @@ function tambahBuku($data) {
 
 }
 
+function hapusBuku($id_buku) {
+    global $conn;
+    mysqli_query($conn, "DELETE FROM buku WHERE id_buku = $id_buku");
+
+    return mysqli_affected_rows($conn);
+}
+
+function editBuku($data) {
+    global $conn;      
+
+    $id_buku = $data["id_buku"];
+    $judul_buku = $data["judul_buku"];
+    $written_by = $data["written_by"];
+    $publish_by = $data["publish_by"];
+    $tgl_rilis = $data["tgl_rilis"];
+    $genre = $data["genre"];
+    $pages = $data["pages"];
+    $isbn = $data["isbn"];
+    $quotes = $data["quotes"];
+    $deskripsi_buku = $data["deskripsi_buku"];
+    $link_pembelian = $data["link_pembelian"];
+    $gambarBukuLama = htmlspecialchars($data['gambarBukuLama']);
+
+    if ( $_FILES['gambar_buku']['error'] === 4 ) {
+        $gambar_buku = $gambarBukuLama;
+    } else {
+        $gambar_buku = uploadBuku();
+    }
+
+
+    $query = "UPDATE buku SET
+                judul_buku = '$judul_buku',
+                written_by = '$written_by',
+                publish_by = '$publish_by',
+                tgl_rilis = '$tgl_rilis',
+                genre = '$genre',
+                pages = '$pages',
+                isbn = '$isbn',
+                quotes = '$quotes',
+                deskripsi_buku = '$deskripsi_buku',
+                gambar_buku = '$gambar_buku',
+                link_pembelian = '$link_pembelian'
+             WHERE id_buku = $id_buku
+            ";
+    mysqli_query($conn, $query);
+    
+    return mysqli_affected_rows($conn);
+}
 
 ?>
