@@ -5,6 +5,7 @@ session_start();
 require "koneksi.php";
 require_once "navbar.php";
 
+
 $id_buku = $_GET['id_buku'];
 
 $buku = query("SELECT * FROM buku WHERE id_buku = $id_buku")[0];
@@ -100,14 +101,22 @@ $format_rilis ->setPattern('d MMMM y');
             <div class="bawah-detail">
                 <a href="<?= $buku['link_pembelian'] ?>" target="_blank">Beli Sekarang</a>
                 <p><?= $buku['deskripsi_buku'] ?></p>
+
+                <?php
+                if (isset($_SESSION['posisi'])) {
+
+                if ($_SESSION['posisi'] === 'admin') {
+
+                ?>
                 <div class="aksi">
                     <a href="editBuku.php?id_buku=<?= $id_buku ?>">
                         <button class="edit">Edit</button>
                     </a>
-                    <a href="hapusBuku.php?id_buku=<?= $id_buku ?>">
+                    <a href="hapusBuku.php?id_buku=<?= $id_buku ?>" onclick="return confirm('yakin?');">
                         <button class="hapus">Hapus</button>
                     </a>
                 </div>
+                <?php }} ?>
             </div>
             <div class="share">
                 <ul>

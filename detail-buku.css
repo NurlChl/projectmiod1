@@ -47,6 +47,10 @@ a {
     gap: .5rem;
 }
 
+.detail-buku .luar-detail-buku .bungkus-desc h2 {
+    text-transform: capitalize;
+}
+
 .detail-buku .luar-detail-buku .bungkus-desc .desc {
     display: flex;
     flex-direction: row;
@@ -61,6 +65,7 @@ a {
 .detail-buku .luar-detail-buku .desc span {
     font-weight: 500;
     color: black;
+    text-transform: capitalize;
 }
 
 .detail-buku .luar-detail-buku .isi-detail {
@@ -95,6 +100,10 @@ a {
 
 .detail-buku .luar-detail-buku .isi-detail .dalam-detail .keterangan li p.bold {
     font-weight: 600;
+}
+
+.detail-buku .luar-detail-buku .isi-detail .dalam-detail .keterangan li p {
+    text-transform: capitalize;
 }
 
 .detail-buku .luar-detail-buku .isi-detail .dalam-detail .quotes {

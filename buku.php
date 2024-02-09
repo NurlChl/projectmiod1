@@ -5,6 +5,7 @@ session_start();
 require_once 'navbar.php';
 require 'koneksi.php';
 
+
 $buku = query("SELECT * FROM buku ORDER BY id_buku DESC");
 
 ?>
@@ -25,6 +26,19 @@ $buku = query("SELECT * FROM buku ORDER BY id_buku DESC");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+        .sec-buku .luar-buku .list-buku {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            width: 100%;
+            gap: 3rem;
+            /* align-content: center; */
+        }
+
+        .sec-buku .luar-buku .list-buku .buku img {
+            max-width: 11rem;
+            object-fit: contain;
+            cursor: pointer;
+        }
         .sec-buku .share-buku .tambah-buku {
             display: flex;
             justify-content: center;
@@ -60,11 +74,16 @@ $buku = query("SELECT * FROM buku ORDER BY id_buku DESC");
         </div>
 
         <div class="share-buku">
+            <?php
+            if (isset($_SESSION['posisi'])) {
+                if ($_SESSION['posisi'] === 'admin') {
+            ?>
             <div class="tambah-buku">
-                <a href="tambahBuku.php">
+                <a href="./tambahBuku.php">
                     <button>Tambah Buku</button>
                 </a>
             </div>
+            <?php }} ?>
             <p>Share</p>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.puthutea.com/" target="_blank">
                 <i class="fa fa-facebook"></i>

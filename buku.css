@@ -27,13 +27,13 @@
     text-transform: uppercase;
 }
 
-.sec-buku .luar-buku .list-buku {
+/* .sec-buku .luar-buku .list-buku {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     width: 100%;
     gap: 3rem;
     align-content: center;
-}
+} */
 
 .sec-buku .luar-buku .list-buku .buku {
     display: flex;
@@ -41,11 +41,11 @@
     gap: 1rem;
 }
 
-.sec-buku .luar-buku .list-buku .buku img {
+/* .sec-buku .luar-buku .list-buku .buku img {
     max-width: 15rem;
     object-fit: contain;
     cursor: pointer;
-}
+} */
 
 .sec-buku .luar-buku .list-buku .buku button {
     padding: 1rem 1.5rem;
@@ -93,7 +93,7 @@
     padding: .5rem 1rem;
     border: none;
     border-radius: .5rem;
-    background-color: blue;
+    background-color: rgb(6, 6, 80);
     color: white;
     cursor: pointer;
 }

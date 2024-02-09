@@ -99,7 +99,7 @@ if (isset($_POST["tambahBukuIni"])) {
             <input type="text" name="link_pembelian" id="link_pembelian" placeholder="Masukkan jika ada">
         </div>
 
-        <button type="submit" name="tambahBukuIni">Tambah Buku</button>
+        <button type="submit" name="tambahBukuIni">Simpan Buku</button>
     </form>
 </body>
 </html>
