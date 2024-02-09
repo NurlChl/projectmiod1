@@ -8,13 +8,20 @@ include_once 'navbar.php';
 $id_opini = $_GET['id_opini'];
 $nama_komen = $_SESSION['username'];
 
+
 $opini = query("SELECT * FROM opini WHERE id_opini = $id_opini")[0];
 $opiniTerbaru = query("SELECT * FROM opini ORDER BY id_opini DESC");
 $komentar = query("SELECT * FROM komen WHERE id_opini = $id_opini ORDER BY id_komen DESC");
 $banyakKOmen = query("SELECT COUNT(*) as jumlah FROM komen WHERE id_opini = $id_opini")[0];
 
+$user = query("SELECT id_user FROM users WHERE username = '$nama_komen'")[0];
+$id_user = $user['id_user'];
+$banyakLike = query("SELECT COUNT(*) as banyak_like FROM likes WHERE id_opini = $id_opini")[0];
+
+
 $format_tgl = new \IntlDateFormatter('id_ID', \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
 $format_tgl->setPattern('MMMM d, y');
+
 
 
 
@@ -63,22 +70,25 @@ if (isset($_POST["kirim_komen"])) {
                 $('.tambah-komen').toggle();
             })
 
-            // $('#pencet-like').click(function() {
-            //     $('#pencet-like').toggleClass('liked');
-            // })
-
-            $("#pencet-like").click(function () {
-            var id_opini = <?= $id_opini ?>; // Ganti dengan ID produk atau posting yang sesuai
-
-            $.post("like.php", { id_opini: id_opini }, function (response) {
-                if (response === 'liked') {
-                    $("#pencet-like").addClass('liked');
-                } else {
-                    $("#pencet-like").removeClass('liked');
-                }
+            $.ajax({
+               url: 'ceklike.php',
+               type: 'POST',
+               data: {id_user: <?= $id_user ?>, id_opini: <?= $id_opini ?>},
+               dataType: 'json',
+               success: function(response) {
+                    if (response.already_liked) {
+                        $('#pencet-like').hide();
+                        $('#pencet-unlike').show();
+                    } else {
+                        $('#pencet-like').show();
+                        $('#pencet-unlike').hide();
+                    }
+               },
+               error: function(xhr, status, error) {
+                    console.error("Error: " + error);
+               }
             });
-        });
-
+            
         })
     </script>
 
@@ -123,22 +133,10 @@ if (isset($_POST["kirim_komen"])) {
                         <p class="t-komen"><?= $banyakKOmen['jumlah'] ?> Comment</p>
                     </li>
                     <li class="baris"></li>
-                    <?php
-                    // $username = $_SESSION['username'];
-                    // $ambilIdUser = query("SELECT id_user FROM users WHERE username = $username");
-                    // $id_user = $ambilIdUser;
-
-                    // $likesCount = query("SELECT COUNT(*) AS likes FROM likes WHERE id_opini = $id_opini AND status = 'like'")['likes'];
-
-                    // $status = mysqli_query($conn, "SELECT status FROM likes WHERE id_opini = $id_opini AND id_user = $id_user");
-
-                    // if (mysqli_num_rows($status) > 0 )  {
-                    //     $status = mysqli_fetch_assoc($status)['status'];
-                    // }
-                    ?>
                     <li>
-                        <p class="angka-like">2</p>
-                        <p class="material-symbols-rounded liked" id="pencet-like">favorite</p>
+                        <p class="angka-like" id="angka-like"><?= $banyakLike['banyak_like'] ?></p>
+                        <p class="material-symbols-rounded" id="pencet-like" onclick="likeOpini()">favorite</p>
+                        <p class="material-symbols-rounded liked" id="pencet-unlike" onclick="unlikeOpini()">favorite</p>
                     </li>
                     <li class="baris"></li>
                     <li class="share-sosmed">
@@ -150,7 +148,6 @@ if (isset($_POST["kirim_komen"])) {
             </div>
 
             <div class="tambah-komen">
-                <!-- <button class="buat-komen">Buat Komentar</button> -->
                 <?php if (isset($_SESSION["login"])) : ?>
                 <form class="input-komen" method="post" action="">
                     <input type="hidden" name="id_opini" value="<?= $id_opini ?>">
@@ -204,13 +201,12 @@ if (isset($_POST["kirim_komen"])) {
                 <div>
                     <img src="gambar/<?= $opiniTerbaru['gambar'] ?>"/>
                     <ul>
-                        <h1><?= $opiniTerbaru['judul'] ?></h1>
+                        <a href="detailOpini.php?id_opini=<?= $opiniTerbaru['id_opini'] ?>">
+                            <h1><?= $opiniTerbaru['judul'] ?></h1>
+                        </a>
                         <?php
-                            
                             $tglBuatTerbaru = strtotime($opiniTerbaru['tgl_buat']);
                             $formatTglTerbaru = $format_tgl->format($tglBuatTerbaru);
-
-                            
                         ?>
                         <p><?= $formatTglTerbaru ?></p>
                     </ul>
@@ -220,36 +216,46 @@ if (isset($_POST["kirim_komen"])) {
         </section>
     </div>
 
+    <script>
+        function likeOpini() {
+            var id_user = <?= $id_user ?>;
+            var id_opini = <?= $id_opini ?>;
 
-    <!-- <script>
-        function toggleLike() {
-        var tombolLike = document.getElementById('pencet-like');
-        var id_opini = ; // Ganti dengan ID posting yang sesuai
-
-        $.ajax({
-            type: 'POST',
-            url: 'like.php',
-            data: { id_opini: id_opini },
-            success: function(response) {
-                if (response == 'liked') {
-                    tombolLike.style.color = 'red'; // Atur warna menjadi merah
-                } else {
-                    tombolLike.style.color = 'black'; // Atur warna kembali ke hitam
+            $.ajax({
+                url: 'like.php',
+                type: 'POST',
+                data: {id_user: id_user, id_opini: id_opini},
+                success: function(response) {
+                    location.reload();
+                    $('#pencet-like').hide();
+                    $('#pencet-unlike').show();
+                    // console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error: " + error);
                 }
-            }
-        });
+            });
         }
-    </script> -->
-    <!-- <script>
-        $('.rekomendasi').slick({
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        prevArrow: '<button class="kiri"><</button>',
-        nextArrow: '<button class="kanan">></button>',
-        });
-    </script> -->
 
+        function unlikeOpini() {
+            var id_user = <?= $id_user ?>;
+            var id_opini = <?= $id_opini ?>;
+
+            $.ajax({
+                url: 'unlike.php',
+                type: 'POST',
+                data: {id_user: id_user, id_opini: id_opini},
+                success: function(response) {
+                    location.reload();
+                    $('#pencet-like').show();
+                    $('#pencet-unlike').hide();
+                    // console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error: " + error);
+                }
+            });
+        }
+    </script>
 </body>
 </html>

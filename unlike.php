@@ -5,8 +5,8 @@ require 'koneksi.php';
 $id_user = $_POST['id_user'];
 $id_opini = $_POST['id_opini'];
 
-$like = "INSERT INTO likes (id_user, id_opini) VALUES ($id_user, $id_opini)";
-if ($conn->query($like) === TRUE) {
+$unlike = "DELETE FROM likes WHERE id_user = $id_user AND id_opini = $id_opini";
+if ($conn->query($unlike) === TRUE) {
     $queryJumlahLike = "SELECT COUNT(*) as total_likes FROM likes WHERE id_opini = $id_opini";
     $hasilJumlahLike = $conn->query($queryJumlahLike);
 
@@ -21,7 +21,7 @@ if ($conn->query($like) === TRUE) {
         echo json_encode($response);
     }
 } else {
-    $response = array('success' => false, 'message' => 'gagal menambahkan like');
+    $response = array('success' => false, 'message' => 'gagal menghapus like');
     echo json_encode($response);
 }
 

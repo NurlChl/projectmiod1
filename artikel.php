@@ -119,7 +119,9 @@ $format_tgl->setPattern('MMMM d, y');
                     <div>
                         <img src="./gambar/<?= $opiniTerbaru['gambar'] ?>" />
                         <li>
-                            <h1><?= $opiniTerbaru['judul'] ?></h1>
+                            <a href="detailOpini.php?id_opini=<?= $opiniTerbaru['id_opini'] ?>">
+                                <h1><?= $opiniTerbaru['judul'] ?></h1>
+                            </a>
                             <?php
                             
                             $tglBuatTerbaru = strtotime($opiniTerbaru['tgl_buat']);
