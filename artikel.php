@@ -52,12 +52,66 @@ $format_tgl->setPattern('MMMM d, y');
         }
 
 
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var navbarHeight = document.querySelector('.artikel-terbaru').offsetHeight;
+        if (screenWidth >= 950) {
+            document.addEventListener('DOMContentLoaded', function() {
+                var navbarHeight = document.querySelector('.artikel-terbaru').offsetHeight;
 
-            document.getElementById('myContainer').style.height = navbarHeight + 'px';
-        });
+                document.getElementById('myContainer').style.height = navbarHeight + 'px';
+            });
+            
+        }
+
+        if (screenWidth < 950) {
+
+                document.getElementById('myContainer').style.height = 'fit-content';
+            
+        }
+
+        if (screenWidth > 500) {
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("logo").style.height = "2.5rem";
+                document.getElementById("logo").style.transitionProperty = "all";
+                document.getElementById("logo").style.transitionDuration = ".2s";
+                document.getElementById("logo").style.transitionTimingFunction = "ease-in";
+                document.getElementById("navbar").style.boxShadow = " 0px 2px 2px 1px rgba(0,0,0,0.05)";
+                document.getElementById("navbar").style.transitionProperty = "all";
+                document.getElementById("navbar").style.transitionDuration = ".2s";
+                document.getElementById("navbar").style.transitionTimingFunction = "ease-in";
+
+            } else {
+                document.getElementById("logo").style.height = "3.5rem";
+                document.getElementById("navbar").style.boxShadow = "none";
+            }
+            }
+            
+        }
+
+        if (screenWidth <= 500) {
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("logo").style.height = "1.6rem";
+                document.getElementById("logo").style.transitionProperty = "all";
+                document.getElementById("logo").style.transitionDuration = ".2s";
+                document.getElementById("logo").style.transitionTimingFunction = "ease-in";
+                document.getElementById("navbar").style.boxShadow = " 0px 2px 2px 1px rgba(0,0,0,0.05)";
+                document.getElementById("navbar").style.transitionProperty = "all";
+                document.getElementById("navbar").style.transitionDuration = ".2s";
+                document.getElementById("navbar").style.transitionTimingFunction = "ease-in";
+
+            } else {
+                document.getElementById("logo").style.height = "2rem";
+                document.getElementById("navbar").style.boxShadow = "none";
+            }
+            }
+            
+        }
         
       </script>
 

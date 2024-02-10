@@ -316,6 +316,7 @@ function tambahBuku($data) {
         return false;
     }
 
+    // var_dump($judul_buku, $written_by, $publish_by, $tgl_rilis, $genre, $pages, $isbn, $quotes, $deskripsi_buku, $link_pembelian, $gambar_buku);die;
 
     $query = "INSERT INTO buku
             (judul_buku, written_by, publish_by, tgl_rilis, genre, pages, isbn, quotes, deskripsi_buku, gambar_buku, link_pembelian)

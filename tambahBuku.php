@@ -14,7 +14,7 @@ if ($_SESSION["posisi"] === "user") {
     exit;
 }
 
-if (isset($_POST["tambahBukuIni"])) {
+if (isset($_POST["tambah_buku_ini"])) {
     
     if (tambahBuku($_POST) > 0 ) {
         echo "
@@ -92,14 +92,14 @@ if (isset($_POST["tambahBukuIni"])) {
         </div>
         <div>
             <label for="gambar_buku">Cover Buku</label>
-            <input type="file" name="gambar_buku" id="gambar_buku" accept="image/*" required>
+            <input type="file" name="gambar_buku" id="gambar_buku" accept="image/*">
         </div>
         <div>
             <label for="link_pembelian">Link Pembelian</label>
             <input type="text" name="link_pembelian" id="link_pembelian" placeholder="Masukkan jika ada">
         </div>
 
-        <button type="submit" name="tambahBukuIni">Simpan Buku</button>
+        <button type="submit" name="tambah_buku_ini">Simpan Buku</button>
     </form>
 </body>
 </html>
