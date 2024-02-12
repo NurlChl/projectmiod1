@@ -27,16 +27,20 @@
         </div>
 
         <div class="copyright">
-            <img src="gambar/logoustajahcrop.png" />
+            <img src="gambar/logoustajahcrop.png"/>
 
             <ul>
-                <li>Buku</li>
+                <a href="buku.php">
+                    <li>Buku</li>
+                </a>
                 <a href="tentang.php">
                     <li>Tentang Situsweb</li>
                 </a>
-                <li>MIOD Project</li>
+                <a href="https://www.instagram.com/miod6589?igsh=MTk3dXJ1cXptbHMxNQ==" target="_blank">
+                    <li>MIOD Project</li>
+                </a>
             </ul>
-            <em>@2023. All Right Reserved. Designed and Developed by MIOD</em>
+            <em>©2024. All Right Reserved. Designed and Developed by MIOD</em>
         </div>
     </footer>
 </body>

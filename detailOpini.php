@@ -93,11 +93,18 @@ if (isset($_POST["kirim_komen"])) {
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var navbarHeight = document.querySelector('.opini-terbaru').offsetHeight;
 
-            document.getElementById('myContainer').style.height = navbarHeight + 'px';
-        });
+        if (screenWidth > 950) {
+            document.addEventListener('DOMContentLoaded', function() {
+                var navbarHeight = document.querySelector('.opini-terbaru').offsetHeight;
+    
+                document.getElementById('myContainer').style.height = navbarHeight + 'px';
+            });
+        }
+
+        if (screenWidth <= 950) {
+            document.getElementById('myContainer').style.height = 'fit-content';
+        }
     </script>
 
     <style>
@@ -257,5 +264,8 @@ if (isset($_POST["kirim_komen"])) {
             });
         }
     </script>
+
+    <?php include_once 'footer.php' ?>
+
 </body>
 </html>

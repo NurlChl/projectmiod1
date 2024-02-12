@@ -75,7 +75,7 @@ if (isset($_POST['login'])) {
 <body>
     <form action="" method="post">
         <div>
-            <h2>FURNITURE</h2>
+            <h2>OPINI</h2>
             <ul class="desc">
                 <h1>Welcome Back</h1>
                 <p>Level up the way you create account</p>

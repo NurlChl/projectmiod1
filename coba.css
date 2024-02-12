@@ -334,8 +334,8 @@ nav ul li:hover {
     font-size: 1.2rem;
     font-weight: 500;
     padding: .5rem;
-    border-top: 1px dashed gray;
-    border-bottom: 1px dashed gray;
+    /* border-top: 1px dashed gray; */
+    /* border-bottom: 1px dashed gray; */
 }
 
 .artikel-terbaru input {
@@ -776,8 +776,8 @@ footer div.copyright em {
         font-size: 1.2rem;
         font-weight: 500;
         padding: .5rem;
-        border-top: 1px dashed gray;
-        border-bottom: 1px dashed gray;
+        /* border-top: 1px dashed gray; */
+        /* border-bottom: 1px dashed gray; */
     }
     
     .artikel-terbaru input {
@@ -1226,8 +1226,8 @@ footer div.copyright em {
         font-size: 1.2rem;
         font-weight: 500;
         padding: .5rem;
-        border-top: 1px dashed gray;
-        border-bottom: 1px dashed gray;
+        /* border-top: 1px dashed gray; */
+        /* border-bottom: 1px dashed gray; */
     }
     
     .artikel-terbaru input {

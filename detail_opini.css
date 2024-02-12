@@ -7,6 +7,46 @@
     font-family: 'poppins';
 }
 
+
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    /* padding: 1rem 10vw; */
+    padding: 1rem calc(20% - 10rem);
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: white;
+}
+
+nav img {
+    /* width: 10rem; */
+    height: 3.5rem;
+    object-fit: contain;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+}
+
+nav ul li {
+    text-transform: uppercase;
+    font-size: .8rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+nav ul li:hover {
+    color: #0090A3;
+    transition: all .2s ease;
+}
+
 .bungkus-section {
     display: grid;
     width: 100%;
@@ -410,3 +450,657 @@ footer div.copyright em {
     color: gray;
     font-size: .9rem;
 } */
+
+
+
+
+/* responsive 950 dekstop, tablet */
+
+@media (max-width: 950px) {
+    .bungkus-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        /* padding: 2rem 10rem; */
+        padding: 2rem calc(20% - 10rem);
+        gap: 3rem;
+        margin-top: 5rem;
+    }
+    
+    .bungkus-section .detail {
+        /* grid-area: opini; */
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        overflow-y: auto;
+    }
+    
+    .bungkus-section .detail::-webkit-scrollbar {
+        width: 0;
+    }
+    
+    .bungkus-section .detail .detail-opini {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    
+    .bungkus-section .detail .detail-opini h1 {
+        text-align: center;
+        cursor: pointer;
+    }
+    .bungkus-section .detail .detail-opini h1:hover {
+        color: gray;
+    }
+    
+    .bungkus-section .detail .detail-opini ul.tgl {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .bungkus-section .detail .detail-opini ul.tgl p {
+        font-size: .9rem;
+        align-items: center;
+        text-align: center;
+        color: gray;
+    }
+    
+    .bungkus-section .detail .detail-opini ul p span {
+        text-transform: capitalize;
+        color: black;
+    }
+    
+    .bungkus-section .detail .detail-opini img {
+        width: 100%;
+        object-fit: contain;
+    }
+    
+    .bungkus-section .detail .detail-opini>p {
+        line-height: 2rem;
+        font-weight: 300;
+        font-size: 1rem;
+        font-family: 'poppins';
+    }
+    
+    .bungkus-section .detail .detail-opini .komen {
+        display: flex;
+        flex-direction: row;
+        gap: 2vw;
+        padding: 1rem;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+        justify-content: center;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        align-items: center;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li .angka-like {
+        font-weight: 500;
+        font-size: .9rem;
+        color: green;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen .baris {
+        width: 1px;
+        height: 100%;
+        background-color: transparent;
+        border-left: 1px solid gray;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li p.material-symbols-rounded {
+        cursor: pointer;
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' -25,
+        'opsz' 20
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li .t-komen {
+        font-size: .8rem;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li.share-sosmed {
+        gap: 1rem;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li span {
+        cursor: pointer;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li span.material-symbols-rounded {
+        font-size: 1.3rem;
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' -25,
+        'opsz' 20
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li .material-symbols-rounded.liked {
+        color: red;
+        font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' -25,
+        'opsz' 20
+    }
+    
+    .bungkus-section .detail .tambah-komen {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .bungkus-section .detail .tambah-komen button {
+        width: fit-content;
+        padding: .5rem 2rem;
+        border-radius: .5rem;
+        border: none;
+        background-color: rgb(9, 9, 82);
+        color: white;
+        cursor: pointer;
+    }
+    
+    .bungkus-section .detail .tambah-komen .input-komen {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    .bungkus-section .detail .tambah-komen .input-komen textarea {
+        resize: none;
+        border-radius: .5rem;
+        height: 8rem;
+        outline: none;
+        border: 2px solid black;
+        padding: .5rem;
+    }
+    
+    .bungkus-section .detail .isi_komen {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: 2rem;
+        width: 100%;
+        align-content: start;
+        max-height: 30rem;
+        overflow-y: auto;
+        padding: 1rem;
+    }
+    .bungkus-section .detail .isi_komen::-webkit-scrollbar {
+        width: .5rem;
+    }
+    .bungkus-section .detail .isi_komen::-webkit-scrollbar-track {
+        background-color: rgb(239, 239, 239);
+        border-radius: 100rem;
+    }
+    .bungkus-section .detail .isi_komen::-webkit-scrollbar-thumb {
+        border-radius: 100rem;
+        border: 5px solid transparent;
+        background-color: blue;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        height: fit-content;
+        border-bottom: 2px solid rgb(233, 233, 233);
+        padding: .5rem 0;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen li {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen li h4 {
+        font-weight: 700;
+        font-size: .9rem;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen li p {
+        font-size: .8rem;
+        color: gray;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen .tempat-komen {
+        font-size: .9rem;
+    }
+    
+    .bungkus-section .detail .bungkus-rekom {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .bungkus-section .detail .bungkus-rekom h2 {
+        text-align: center;
+    }
+    
+    .bungkus-section .detail .rekomendasi {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        /* display: flex;
+        flex-direction: row; */
+        overflow: auto;
+        width: 100%;
+        gap: 1.5rem 1rem;
+    }
+    
+    .bungkus-section .detail .rekomendasi div.konten-slider {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    .bungkus-section .detail .rekomendasi div.konten-slider img {
+        width: 100%;
+        height: 9rem;
+        object-fit: cover;
+    }
+    
+    .bungkus-section .detail .rekomendasi div.konten-slider h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        cursor: pointer;
+    }
+    .bungkus-section .detail .rekomendasi div.konten-slider h2:hover {
+        color: gray;
+    }
+    
+    .bungkus-section .detail .rekomendasi div.konten-slider p {
+        font-size: .8rem;
+        text-transform: capitalize;
+        text-align: center;
+        color: gray;
+    }
+    
+    .bungkus-section .terbaru {
+        width: 100%;
+        min-height: 90vh;
+        height: fit-content;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        border-bottom: 1px solid gray;
+        padding: 1.5rem 0;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div img {
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div ul h1 {
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    .bungkus-section .terbaru .opini-terbaru div ul h1:hover {
+        color: gray;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div ul p {
+        font-size: .8rem;
+        color: gray;
+    }
+}
+
+
+
+
+/* responsive hp */
+
+@media (max-width: 580px) {
+    .bungkus-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        /* padding: 2rem 10rem; */
+        padding: 2rem calc(20% - 10rem);
+        gap: 3rem;
+        margin-top: 5rem;
+    }
+    
+    .bungkus-section .detail {
+        /* grid-area: opini; */
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        overflow-y: auto;
+    }
+    
+    .bungkus-section .detail::-webkit-scrollbar {
+        width: 0;
+    }
+    
+    .bungkus-section .detail .detail-opini {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    
+    .bungkus-section .detail .detail-opini h1 {
+        text-align: center;
+        cursor: pointer;
+    }
+    .bungkus-section .detail .detail-opini h1:hover {
+        color: gray;
+    }
+    
+    .bungkus-section .detail .detail-opini ul.tgl {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .bungkus-section .detail .detail-opini ul.tgl p {
+        font-size: .9rem;
+        align-items: center;
+        text-align: center;
+        color: gray;
+    }
+    
+    .bungkus-section .detail .detail-opini ul p span {
+        text-transform: capitalize;
+        color: black;
+    }
+    
+    .bungkus-section .detail .detail-opini img {
+        width: 100%;
+        object-fit: contain;
+    }
+    
+    .bungkus-section .detail .detail-opini>p {
+        line-height: 2rem;
+        font-weight: 300;
+        font-size: 1rem;
+        font-family: 'poppins';
+    }
+    
+    .bungkus-section .detail .detail-opini .komen {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5vw;
+        padding: 1rem;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+        justify-content: center;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        align-items: center;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li .angka-like {
+        font-weight: 500;
+        font-size: .9rem;
+        color: green;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen .baris {
+        width: 1px;
+        height: 100%;
+        background-color: transparent;
+        border-left: 1px solid gray;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li p.material-symbols-rounded {
+        cursor: pointer;
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' -25,
+        'opsz' 20
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li .t-komen {
+        font-size: .8rem;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li.share-sosmed {
+        gap: 1rem;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li span {
+        cursor: pointer;
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li span.material-symbols-rounded {
+        font-size: 1.3rem;
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' -25,
+        'opsz' 20
+    }
+    
+    .bungkus-section .detail .detail-opini .komen li .material-symbols-rounded.liked {
+        color: red;
+        font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' -25,
+        'opsz' 20
+    }
+    
+    .bungkus-section .detail .tambah-komen {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .bungkus-section .detail .tambah-komen button {
+        width: fit-content;
+        padding: .5rem 2rem;
+        border-radius: .5rem;
+        border: none;
+        background-color: rgb(9, 9, 82);
+        color: white;
+        cursor: pointer;
+    }
+    
+    .bungkus-section .detail .tambah-komen .input-komen {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    .bungkus-section .detail .tambah-komen .input-komen textarea {
+        resize: none;
+        border-radius: .5rem;
+        height: 8rem;
+        outline: none;
+        border: 2px solid black;
+        padding: .5rem;
+    }
+    
+    .bungkus-section .detail .isi_komen {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: 2rem;
+        width: 100%;
+        align-content: start;
+        max-height: 30rem;
+        overflow-y: auto;
+        padding: 1rem;
+    }
+    .bungkus-section .detail .isi_komen::-webkit-scrollbar {
+        width: .5rem;
+    }
+    .bungkus-section .detail .isi_komen::-webkit-scrollbar-track {
+        background-color: rgb(239, 239, 239);
+        border-radius: 100rem;
+    }
+    .bungkus-section .detail .isi_komen::-webkit-scrollbar-thumb {
+        border-radius: 100rem;
+        border: 5px solid transparent;
+        background-color: blue;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        height: fit-content;
+        border-bottom: 2px solid rgb(233, 233, 233);
+        padding: .5rem 0;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen li {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen li h4 {
+        font-weight: 700;
+        font-size: .9rem;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen li p {
+        font-size: .8rem;
+        color: gray;
+    }
+    
+    .bungkus-section .detail .isi_komen .kotak-komen .tempat-komen {
+        font-size: .9rem;
+    }
+    
+    .bungkus-section .detail .bungkus-rekom {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .bungkus-section .detail .bungkus-rekom h2 {
+        text-align: center;
+    }
+    
+    .bungkus-section .detail .rekomendasi {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+        /* display: flex;
+        flex-direction: row; */
+        overflow: auto;
+        width: 100%;
+        gap: 1.5rem 1rem;
+    }
+    
+    .bungkus-section .detail .rekomendasi div.konten-slider {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .bungkus-section .detail .rekomendasi div.konten-slider img {
+        width: 100%;
+        height: 6rem;
+        object-fit: cover;
+    }
+    
+    .bungkus-section .detail .rekomendasi div.konten-slider h2 {
+        font-size: .9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        cursor: pointer;
+    }
+    .bungkus-section .detail .rekomendasi div.konten-slider h2:hover {
+        color: gray;
+    }
+    
+    .bungkus-section .detail .rekomendasi div.konten-slider p {
+        font-size: .7rem;
+        text-transform: capitalize;
+        text-align: center;
+        color: gray;
+    }
+    
+    .bungkus-section .terbaru {
+        width: 100%;
+        min-height: 90vh;
+        height: fit-content;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        border-bottom: 1px solid gray;
+        padding: 1.5rem 0;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div img {
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div ul {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div ul h1 {
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    .bungkus-section .terbaru .opini-terbaru div ul h1:hover {
+        color: gray;
+    }
+    
+    .bungkus-section .terbaru .opini-terbaru div ul p {
+        font-size: .8rem;
+        color: gray;
+    }
+}

@@ -44,7 +44,7 @@ if (isset($_POST["register"])) {
 <body>
     <form action="" method="post">
         <div>
-            <h2>FURNITURE</h2>
+            <h2>OPINI</h2>
             <ul class="desc">
                 <h1>Hello!</h1>
                 <p>Silahkan buat akun anda!</p>
