@@ -8,7 +8,7 @@
 }
 
 .setting {
-    margin: 10rem;
+    margin: calc(20% - 10rem);
     display: flex;
     flex-direction: column;
     gap: 5rem;

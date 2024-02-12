@@ -25,7 +25,8 @@ nav {
     flex-direction: row;
     gap: 2rem;
     justify-content: space-between;
-    padding: 1rem 10vw;
+    /* padding: 1rem 10vw; */
+    padding: 1rem calc(20% - 10rem);
     align-items: center;
     position: fixed;
     top: 0;
@@ -64,7 +65,8 @@ nav ul li:hover {
   display: grid;
   width: 100%;
   grid-template-columns: 3fr 1fr;
-  padding: 2rem 10rem;
+  /* padding: 2rem 10rem; */
+  padding: 2rem calc(20% - 10rem);
   gap: 3rem;
   margin-top: 5rem;
 }
