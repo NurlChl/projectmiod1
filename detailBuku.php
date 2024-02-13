@@ -2,8 +2,10 @@
 
 session_start();
 
+
 require "koneksi.php";
 require_once "navbar.php";
+
 
 
 $id_buku = $_GET['id_buku'];

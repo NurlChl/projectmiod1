@@ -2,6 +2,11 @@
 
 session_start();
 
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
 require 'koneksi.php';
 include_once 'navbar.php';
 
