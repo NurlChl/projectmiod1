@@ -11,7 +11,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin: 10rem calc(20% - 10rem);
+    padding: 10rem calc(20% - 10rem);
 }
 
 form h2 {
@@ -37,10 +37,12 @@ form div input[type=text], form div input[type=number]{
     border-radius: .5rem;
 }
 
-for div input[type=date] {
-    padding: .5rem;
+form div input[type=date] {
+    padding: 1rem;
     outline: none;
-    width: 10rem;
+    width: fit-content;
+    border-radius: .5rem;
+    border: 1px solid black;
 }
 
 form div input[type=file]::file-selector-button {
@@ -73,4 +75,35 @@ form button {
     color: white;
     margin: 1rem auto 0 auto;
     cursor: pointer;
+}
+
+
+
+
+/* responsive dekstop tablet */
+
+@media (max-width: 900px) {
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 10rem 1rem;
+    }
+}
+
+
+
+
+/* responsive hp */
+
+@media (max-width: 550px) {
+    form div textarea {
+        padding: 1rem;
+        outline: none;
+        border: none;
+        border-radius: .3rem;
+        border: 1.5px solid black;
+        resize: none;
+        height: 15rem;
+    }
 }

@@ -336,6 +336,8 @@ nav ul li:hover {
     padding: .5rem;
     /* border-top: 1px dashed gray; */
     /* border-bottom: 1px dashed gray; */
+    border: 5px double gray;
+    border-radius: 0px 20px 0px 20px;
 }
 
 .artikel-terbaru input {
@@ -507,7 +509,7 @@ footer div.copyright em {
         flex-direction: row;
         gap: 2rem;
         justify-content: space-between;
-        padding: 1rem 10vw;
+        padding: 1rem calc(20% - 10rem);
         align-items: center;
         position: fixed;
         top: 0;
@@ -544,7 +546,7 @@ footer div.copyright em {
       display: flex;
       width: 100%;
       flex-direction: column;
-      padding: 2rem 5rem;
+      padding: 2rem;
       gap: 5rem;
       margin-top: 5rem;
     }
@@ -778,6 +780,8 @@ footer div.copyright em {
         padding: .5rem;
         /* border-top: 1px dashed gray; */
         /* border-bottom: 1px dashed gray; */
+        border: 5px double gray;
+        border-radius: 0px 20px 0px 20px;
     }
     
     .artikel-terbaru input {
@@ -1228,6 +1232,8 @@ footer div.copyright em {
         padding: .5rem;
         /* border-top: 1px dashed gray; */
         /* border-bottom: 1px dashed gray; */
+        border: 5px double gray;
+        border-radius: 0px 20px 0px 20px;
     }
     
     .artikel-terbaru input {

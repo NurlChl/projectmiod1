@@ -18,6 +18,8 @@ $user = query("SELECT id_user FROM users WHERE username = '$nama_komen'")[0];
 $id_user = $user['id_user'];
 $banyakLike = query("SELECT COUNT(*) as banyak_like FROM likes WHERE id_opini = $id_opini")[0];
 
+$rekomOpini = query("SELECT * FROM opini ORDER BY id_opini DESC LIMIT 0, 3");
+
 
 $format_tgl = new \IntlDateFormatter('id_ID', \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
 $format_tgl->setPattern('MMMM d, y');
@@ -183,27 +185,20 @@ if (isset($_POST["kirim_komen"])) {
             <div class="bungkus-rekom">
                 <h2>Rekomendasi</h2>
                 <div class="rekomendasi">
+                    <?php foreach ($rekomOpini as $rekomOpini) : ?>
                     <div class="konten-slider">
-                        <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                        <h2>Pinjam Hape</h2>
+                        <img src="./gambar/<?= $rekomOpini['gambar'] ?>"/>
+                        <h2><?= $rekomOpini['judul'] ?></h2>
                         <p>Januari 2, 2019</p>
                     </div>
-                    <div class="konten-slider">
-                        <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                        <h2>Pinjam Hape</h2>
-                        <p>Januari 2, 2019</p>
-                    </div>
-                    <div class="konten-slider">
-                        <img src="https://www.puthutea.com/wp-content/uploads/2019/05/PEA.jpg"/>
-                        <h2>Pinjam Hape</h2>
-                        <p>Januari 2, 2019</p>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </section>
     
         <section class="terbaru">
             <div class="opini-terbaru">
+                <h2>TERBARU</h2>
                 <?php foreach ($opiniTerbaru as $opiniTerbaru) : ?>
                 <div>
                     <img src="gambar/<?= $opiniTerbaru['gambar'] ?>"/>

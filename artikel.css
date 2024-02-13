@@ -18,6 +18,49 @@ h1 {
     font-weight: 600;
 }
 
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    /* padding: 1rem 10vw; */
+    padding: 1rem calc(20% - 10rem);
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: white;
+}
+
+nav img {
+    /* width: 10rem; */
+    height: 3.5rem;
+    object-fit: contain;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+}
+
+nav ul li {
+    text-transform: uppercase;
+    font-size: .8rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+nav ul li:hover {
+    color: #0090A3;
+    transition: all .2s ease;
+}
+
+
+
 .container {
   display: grid;
   width: 100%;
@@ -291,8 +334,10 @@ h1 {
     font-size: 1.2rem;
     font-weight: 500;
     padding: .5rem;
-    border-top: 1px dashed gray;
-    border-bottom: 1px dashed gray;
+    /* border-top: 1px dashed gray; */
+    /* border-bottom: 1px dashed gray; */
+    border: 5px double gray;
+    border-radius: 0px 20px 0px 20px;
 }
 
 .artikel-terbaru input {
@@ -464,7 +509,7 @@ footer div.copyright em {
         flex-direction: row;
         gap: 2rem;
         justify-content: space-between;
-        padding: 1rem 10vw;
+        padding: 1rem calc(20% - 10rem);
         align-items: center;
         position: fixed;
         top: 0;
@@ -501,7 +546,7 @@ footer div.copyright em {
       display: flex;
       width: 100%;
       flex-direction: column;
-      padding: 2rem 5rem;
+      padding: 2rem;
       gap: 5rem;
       margin-top: 5rem;
     }
@@ -733,8 +778,10 @@ footer div.copyright em {
         font-size: 1.2rem;
         font-weight: 500;
         padding: .5rem;
-        border-top: 1px dashed gray;
-        border-bottom: 1px dashed gray;
+        /* border-top: 1px dashed gray; */
+        /* border-bottom: 1px dashed gray; */
+        border: 5px double gray;
+        border-radius: 0px 20px 0px 20px;
     }
     
     .artikel-terbaru input {
@@ -1183,8 +1230,10 @@ footer div.copyright em {
         font-size: 1.2rem;
         font-weight: 500;
         padding: .5rem;
-        border-top: 1px dashed gray;
-        border-bottom: 1px dashed gray;
+        /* border-top: 1px dashed gray; */
+        /* border-bottom: 1px dashed gray; */
+        border: 5px double gray;
+        border-radius: 0px 20px 0px 20px;
     }
     
     .artikel-terbaru input {

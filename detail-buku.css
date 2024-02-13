@@ -7,38 +7,17 @@
     font-family: 'roboto';
 }
 
-/* referensi fonts "
-
-proza libre
-biz udgothic
-coiny
-im fell double pica
-biz udpmincho
-lily script one
-montagu slab
-
-*/
-
 a {
     color: black;
 }
 
 .detail-buku {
     display: grid;
-    /* grid-template-columns: 3fr 1fr; */
-    /* gap: 2rem; */
     margin-top: 10rem;
     margin-bottom: 3rem;
     /* padding: 0 10rem; */
     padding: 0 calc(20% - 10rem);
 }
-
-/* .detail-buku .luar-detail-buku {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: start;
-} */
 
 .detail-buku .luar-detail-buku .bungkus-desc {
     display: flex;
@@ -219,3 +198,217 @@ a {
     height: 5rem;
     object-fit: cover;
 }
+
+
+
+
+
+/* responsive desktop tablet */
+
+@media (max-width: 900px) {
+    .detail-buku {
+        display: grid;
+        margin-top: 10rem;
+        margin-bottom: 3rem;
+        /* padding: 0 10rem; */
+        padding: 0 2rem;
+    }
+    
+}
+
+
+@media (max-width: 550px) {
+    .detail-buku {
+        display: grid;
+        margin-top: 10rem;
+        margin-bottom: 3rem;
+        /* padding: 0 10rem; */
+        padding: 0 2rem;
+    }
+    
+    .detail-buku .luar-detail-buku .bungkus-desc {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: .5rem;
+    }
+    
+    .detail-buku .luar-detail-buku .bungkus-desc h2 {
+        text-transform: capitalize;
+    }
+    
+    .detail-buku .luar-detail-buku .bungkus-desc .desc {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .detail-buku .luar-detail-buku .desc li {
+        color: gray;
+        font-size: .9rem;
+    }
+    
+    .detail-buku .luar-detail-buku .desc span {
+        font-weight: 500;
+        color: black;
+        text-transform: capitalize;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail img {
+        width: 15rem;
+        object-fit: contain;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail .dalam-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail .dalam-detail .keterangan {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail .dalam-detail .keterangan li {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail .dalam-detail .keterangan li p.bold {
+        font-weight: 600;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail .dalam-detail .keterangan li p {
+        text-transform: capitalize;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail .dalam-detail .quotes {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail .dalam-detail .quotes div {
+        font-family: "BIZ UDPMincho";
+        font-size: 4rem;
+        color: red;
+        transform: scale(-1, -1);
+        height: 1.5rem;
+    }
+    
+    .detail-buku .luar-detail-buku .isi-detail .dalam-detail .quotes p {
+        line-height: 1.5rem;
+        color: gray;
+        font-style: italic;
+    }
+    
+    .detail-buku .luar-detail-buku .bawah-detail {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    .detail-buku .luar-detail-buku .bawah-detail a {
+        color: red;
+        cursor: pointer;
+    }
+    
+    .detail-buku .luar-detail-buku .bawah-detail .aksi {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .detail-buku .luar-detail-buku .bawah-detail .aksi button {
+        padding: .5rem 1rem;
+        border: none;
+        border-radius: .5rem;
+        cursor: pointer;
+    }
+    
+    .detail-buku .luar-detail-buku .bawah-detail .aksi .edit {
+        background-color: yellow;
+    }
+    .detail-buku .luar-detail-buku .bawah-detail .aksi .edit:hover {
+        background-color: rgb(243, 243, 3);
+    }
+    
+    .detail-buku .luar-detail-buku .bawah-detail .aksi .hapus {
+        background-color: red;
+        color: white;
+    }
+    .detail-buku .luar-detail-buku .bawah-detail .aksi .hapus:hover {
+        background-color: rgb(235, 0, 0);
+    }
+    
+    .detail-buku .luar-detail-buku .share {
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 1rem 1rem;
+    }
+    
+    .detail-buku .luar-detail-buku .share ul {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .detail-buku .luar-detail-buku .share .tombol-komen {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+    }
+    
+    .detail-buku .luar-detail-buku .share .medsos {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .detail-buku .luar-detail-buku .share .medsos p {
+        font-size: .8rem;
+        font-weight: 500;
+    }
+    
+    .detail-buku .terbaru {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .detail-buku .terbaru ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .detail-buku .terbaru ul img {
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
+    }
+}
+
+
+
+

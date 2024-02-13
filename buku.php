@@ -31,7 +31,7 @@ $buku = query("SELECT * FROM buku ORDER BY id_buku DESC");
             grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
             width: 100%;
             gap: 3rem;
-            /* align-content: center; */
+            justify-items: center;
         }
 
         .sec-buku .luar-buku .list-buku .buku img {
@@ -52,6 +52,26 @@ $buku = query("SELECT * FROM buku ORDER BY id_buku DESC");
             background-color: blue;
             color: white;
             cursor: pointer;
+        }
+
+
+
+
+        @media (max-width: 550px) {
+            .sec-buku .luar-buku .list-buku {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+                width: 100%;
+                gap: 1rem;
+                justify-items: center;
+            }
+
+            .sec-buku .luar-buku .list-buku .buku img {
+                max-width: 8rem;
+                object-fit: contain;
+                cursor: pointer;
+            }
+
         }
     </style>
 </head>

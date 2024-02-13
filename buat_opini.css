@@ -15,10 +15,11 @@ form {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    width: 80vw;
+    width: 100%;
     margin: 5rem auto;
     background-color: white;
-    padding: 3rem;
+    padding: 3rem calc(20% - 10rem);
+    justify-items: center
 }
 
 form h1 {
@@ -69,4 +70,21 @@ form button {
     width: fit-content;
     cursor: pointer;
     margin: 2rem auto;
+}
+
+
+
+
+/* responsive tablet dekstop */
+
+@media (max-width: 900px) {
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        margin: 5rem auto;
+        background-color: white;
+        padding: 3rem 1rem;
+    }
 }
