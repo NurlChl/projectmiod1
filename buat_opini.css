@@ -42,19 +42,19 @@ form .input-biasa input[type=text] {
     /* border: 1px solid black; */
     border-radius: .5rem;
     padding: 1rem;
-    background-color: rgb(245, 245, 245);
+    background-color: #F6F5F5;
 }
 
 form .input-biasa input[type=file]::file-selector-button {
     font-weight: 500;
     border: none;
     padding: .5rem 1rem;
-    background-color: orange;
+    background-color: #EE6F57;
     border-radius: .3rem;
     cursor: pointer;
 }
 form .input-biasa input[type=file]::file-selector-button:hover {
-    background-color: rgb(219, 142, 0)
+    background-color: #db654e;
 
 }
 
@@ -64,7 +64,8 @@ form .isi-opini textarea {
 
 form button {
     border: none;
-    background-color: greenyellow;
+    background-color: #070D59;
+    color: white;
     border-radius: .5rem;
     padding: 1rem 3rem;
     width: fit-content;
@@ -72,6 +73,9 @@ form button {
     margin: 2rem auto;
 }
 
+form button:hover {
+    background-color: #1F3C88;
+}
 
 
 

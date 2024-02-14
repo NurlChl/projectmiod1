@@ -17,7 +17,7 @@
 
     <style>
         .active {
-            color: #C06944
+            color: #EE6F57;
         }
     </style>
 
@@ -117,7 +117,7 @@
             </a>
             <?php else : ?>
                 <a href="logout.php">
-                    <li class="btn-login" style="color: #D12539;">Logout</li>
+                    <li class="btn-login" style="color: #EE6F57;">Logout</li>
                 </a>
             <?php endif; ?>
         </ul>

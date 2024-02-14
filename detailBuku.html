@@ -63,6 +63,14 @@
             <div class="bawah-detail">
                 <a href="">Beli Sekarang</a>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptates ipsum! Delectus libero repudiandae accusamus dolorum vel modi tenetur harum?</p>
+                <div class="aksi">
+                    <a href="editBuku.php?id_buku=<?= $id_buku ?>">
+                        <button class="edit">Edit</button>
+                    </a>
+                    <a href="hapusBuku.php?id_buku=<?= $id_buku ?>" onclick="return confirm('yakin?');">
+                        <button class="hapus">Hapus</button>
+                    </a>
+                </div>
             </div>
             <div class="share">
                 <ul>

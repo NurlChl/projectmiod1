@@ -114,6 +114,16 @@ $format_tgl->setPattern('MMMM d, y');
         }
         
       </script>
+    <style>
+        .artikel-terbaru>h2 {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: .5rem;
+            border: 5px double gray;
+            border-radius: 0px 20px 0px 20px;
+        }
+    </style>
 
 </head>
 <body>
@@ -166,6 +176,7 @@ $format_tgl->setPattern('MMMM d, y');
         </div>
 
         <div class="artikel-terbaru">
+            <!-- <h2 style="border: 5px double gray; border-radius: 0px 20px 0px 20px;">TERBARU</h2> -->
             <h2>TERBARU</h2>
             <?php foreach ($opiniTerbaru as $opiniTerbaru) : ?>
             <div>

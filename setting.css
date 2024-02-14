@@ -37,17 +37,17 @@
     border: none;
     border-radius: 100rem;
     padding: .5rem 2rem;
-    background-color: rgb(82, 162, 254);
+    background-color: #070D59;
     color: white;
     cursor: pointer;
 }
 .setting .search ul button:hover {
-    background-color: rgb(61, 129, 207);
+    background-color: #1F3C88;
 }
 
 table {
     border-collapse: collapse;
-    background-color: rgb(245, 245, 245);
+    background-color: #F6F5F5;
     width: 100%;
     margin: 0 auto;
 }

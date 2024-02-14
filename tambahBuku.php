@@ -1,8 +1,8 @@
 <?php
 
 session_start();
+
 require "koneksi.php";
-require_once "navbar.php";
 
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
@@ -14,7 +14,8 @@ if ($_SESSION["posisi"] === "user") {
     exit;
 }
 
-if (isset($_POST["tambah_buku_ini"])) {
+
+if (isset($_POST["simpan_buku"])) {
     
     if (tambahBuku($_POST) > 0 ) {
         echo "
@@ -30,6 +31,7 @@ if (isset($_POST["tambah_buku_ini"])) {
             </script>
         ";
     }
+
 }
 
 
@@ -51,6 +53,7 @@ if (isset($_POST["tambah_buku_ini"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <?php require_once 'navbar.php' ?>
     <form action="" method="post" enctype="multipart/form-data">
         <h2>Tambah Buku</h2>
 
@@ -99,7 +102,7 @@ if (isset($_POST["tambah_buku_ini"])) {
             <input type="text" name="link_pembelian" id="link_pembelian" placeholder="Masukkan jika ada">
         </div>
 
-        <button type="submit" name="tambah_buku_ini">Simpan Buku</button>
+        <button type="submit" name="simpan_buku">Simpan Buku</button>
     </form>
 </body>
 </html>

@@ -95,7 +95,7 @@ a {
 .detail-buku .luar-detail-buku .isi-detail .dalam-detail .quotes div {
     font-family: "BIZ UDPMincho";
     font-size: 4rem;
-    color: red;
+    color: #EE6F57;
     transform: scale(-1, -1);
     height: 1.5rem;
 }
@@ -113,7 +113,7 @@ a {
 }
 
 .detail-buku .luar-detail-buku .bawah-detail a {
-    color: red;
+    color: #EE6F57;
     cursor: pointer;
 }
 
@@ -304,7 +304,7 @@ a {
     .detail-buku .luar-detail-buku .isi-detail .dalam-detail .quotes div {
         font-family: "BIZ UDPMincho";
         font-size: 4rem;
-        color: red;
+        color: #EE6F57;
         transform: scale(-1, -1);
         height: 1.5rem;
     }
@@ -322,7 +322,7 @@ a {
     }
     
     .detail-buku .luar-detail-buku .bawah-detail a {
-        color: red;
+        color: #EE6F57;
         cursor: pointer;
     }
     

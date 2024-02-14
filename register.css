@@ -85,7 +85,7 @@ form div ul label {
 form div ul input {
     outline: none;
     border: none;
-    background-color: rgb(246, 246, 246);
+    background-color: #F6F5F5;
     padding: .5rem 1rem;
     border-radius: 100rem;
 }
@@ -95,7 +95,8 @@ form div button {
     padding: .5rem 2rem;
     border-radius: 100rem;
     border: none;
-    background-color: greenyellow;
+    background-color: #070D59;
+    color: white;
     cursor: pointer;
     font-weight: 500;
 }
@@ -198,7 +199,7 @@ form div p span {
     }
     
     form div ul input[type=text], form div ul input[type=number] {
-        background-color: rgb(246, 246, 246);
+        background-color: #F6F5F5;
         padding: .5rem 1rem;
         border-radius: 100rem;
     }
@@ -206,7 +207,7 @@ form div p span {
     form div ul textarea {
         border: none;
         border-radius: .5rem;
-        background-color: rgb(246, 246, 246);
+        background-color: #F6F5F5;
         padding: .5rem;
         font-size: .5rem;
     }
@@ -253,7 +254,8 @@ form div p span {
         padding: .5rem 1rem;
         border-radius: 100rem;
         border: none;
-        background-color: greenyellow;
+        background-color: #070D59;
+        color: white;
         cursor: pointer;
         font-weight: 500;
         font-size: .5rem;

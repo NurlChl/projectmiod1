@@ -49,11 +49,11 @@ form div input[type=file]::file-selector-button {
     padding: .5rem 1rem;
     border: none;
     border-radius: .3rem;
-    background-color: orange;
+    background-color: #EE6F57;
     cursor: pointer;
 }
 form div input[type=file]::file-selector-button:hover {
-    background-color: rgb(235, 152, 0);
+    background-color: #db654e;
 }
 
 form div textarea {
@@ -71,7 +71,7 @@ form button {
     border: none;
     padding: .5rem 1rem;
     border-radius: .5rem;
-    background-color: blue;
+    background-color: #070D59;
     color: white;
     margin: 1rem auto 0 auto;
     cursor: pointer;
