@@ -42,16 +42,26 @@ $format_tgl->setPattern('MMMM d, y');
                 var maxLines = 2; // Sesuaikan dengan jumlah baris maksimum yang diinginkan
                 var maxHeight = lineHeight * maxLines;
 
-                if (element.clientHeight > maxHeight) {
-                    while (element.clientHeight > maxHeight) {
-                        element.innerHTML = element.innerHTML.slice(0, -1);
-                    }
-                    element.innerHTML += "...";
+                // Tentukan jumlah maksimum karakter berdasarkan indeks nth-child
+                var index = i + 1;
+                var maxCharacters = 0;
+
+                // Tentukan jumlah maksimum karakter berdasarkan indeks nth-child
+                if (index % 3 == 1) {
+                    maxCharacters = 250;
+                } else {
+                    maxCharacters = 80;
+                }
+
+                // Batasi teks yang diproses hanya untuk teks yang melebihi batas karakter tertentu
+                var text = element.textContent.trim().slice(0, maxCharacters);
+
+                if (text.length < element.textContent.trim().length) {
+                    element.textContent = text + "...";
                 }
             }
         }
-
-
+        
 
         var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
