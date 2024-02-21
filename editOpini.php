@@ -97,8 +97,8 @@ if (isset($_POST["simpan"])) {
 
         tinymce.init({
             selector: '#isi_opini',
-            plugins: 'image link',
-            toolbar: 'bold italic underline | alignleft aligncenter alignright alignjustify | image link',
+            plugins: 'image link lists advlist',
+            toolbar: 'bold italic underline | alignleft aligncenter alignright alignjustify | numlist bullist image link',
             images_upload_url: 'postAcceptor.php',
             branding: false,
             images_reuse_filename: true,
